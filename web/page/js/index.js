@@ -1,14 +1,14 @@
 new function(Rexjs, controllerProvider, routeConfigs){
 
-this.File = function(Module, forEach, registerController){
+this.File = function(Module, forEach, q, registerController){
 	function File($q){
-		this.defered = $q.defer();
+		q = $q;
 	};
 	File = new Rexjs(File);
 
 	File.props({
 		load: function(filename){
-			var defered = this.defered;
+			var defered = q.defer();
 
 			new Module(filename).evalListener(function(mod){
 				forEach(mod.exports, registerController);
@@ -23,6 +23,8 @@ this.File = function(Module, forEach, registerController){
 }(
 	Rexjs.Module,
 	Rexjs.forEach,
+	// q
+	null,
 	// registerController
 	function(member){
 		var controllerName = member.controllerName;
