@@ -1,0 +1,18 @@
+#learn dt {
+	line-height: 32px;
+	font-size: 14px;
+}
+
+#learn > footer {
+	margin-top: 30px;
+	text-align: center;
+}
+
+#learn a {
+	display: inline-block;
+	background-color: #00a979;
+	height: 42px;
+	line-height:  42px;
+	font-size: 14px;
+	padding: 0 1em;
+}

@@ -1,0 +1,14 @@
+#syntax > ol {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	line-height: 3em;
+}
+
+#syntax li {
+	width: 20%;
+}
+
+#syntax li::before {
+	
+}

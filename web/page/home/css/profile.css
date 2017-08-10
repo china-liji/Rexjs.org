@@ -1,0 +1,119 @@
+#profile dl {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+#profile figure {
+	width: 830px;
+	margin: 0 auto;
+}
+
+#profile figcaption {
+	text-align: right;
+	
+}
+
+#profile figcaption > q {
+	display: inline-block;
+	margin-left: 2em;
+}
+
+#profile figcaption > q::before,
+#profile figcaption > q::after {
+	content: "";
+}
+
+#profile figcaption span {
+	font-size: 18px;
+}
+
+#profile dl {
+	height: 320px;
+	position: relative;
+	margin: 30px 0;
+}
+
+#profile dl:not([data-description=""])::before {
+	content: attr(data-description)"";
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 2px 6px;
+	background-color: rgba(0, 0, 0, 0.6);
+	color: #fff;
+}
+
+#profile dt, #profile dd p {
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+	position: relative;
+}
+
+#profile dt {
+	height: 100%;
+	width: 30px;
+	flex-direction: column;
+	padding: 0 6px 20px 0;
+	text-align: right;
+}
+
+#profile dt::before {
+	content: "（秒）";
+	position: absolute;
+	bottom: 100%;
+	right: 0;
+	margin-bottom: 6px;
+}
+
+#profile dd > p {
+	width: 100%;
+	flex-direction: row;
+	text-align: center;
+}
+
+#profile dd > p::after {
+	content: "（kb）";
+	position: absolute;
+	bottom: 0;
+	left: 100%;
+	margin-left: 6px;
+}
+
+#profile svg {
+	background: url(page/home/image/bg-repeat.png) repeat 0 0 #fff;
+	border: 1px solid #aaa;
+	overflow: hidden;
+}
+
+#profile line {
+	stroke: red;
+	fill: none;
+	stroke-width: 2;
+}
+
+#profile circle {
+	fill: red;
+	stroke-width: 1;
+	r: 4;
+}
+
+#profile text {
+	font-size: 14px;
+}
+
+#profile > footer {
+	text-align: center;
+}
+
+#profile > footer > button {
+	width: 120px;
+	height: 32px;
+	background-color: #b70000;
+}
+
+#profile > footer > button:disabled {
+	opacity: 0.3;
+	cursor: default;
+}

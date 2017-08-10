@@ -1,0 +1,81 @@
+#code {
+	background-color: #222;
+	text-align: center;
+	width: 100%;
+}
+
+#code > * {
+	margin: 0 auto;
+	width: 100%;
+}
+
+#code > p {
+	font-size: 28px;
+	white-space: normal;
+	color: #e8d012;
+}
+
+#code ul {
+	text-align: left;
+	margin-top: 80px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+#code li {
+	max-width: 100%;
+	width: 520px;
+	height: 300px;
+	margin: 0 15px 20px 15px;
+}
+
+[data-tip] {
+	position: relative;
+	overflow: hidden;
+}
+
+[data-tip]::before {
+	content: attr(data-tip);
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1;
+	padding: 3px 8px;
+	box-shadow: 0 0 5px #888;
+	color: #d61b70;
+}
+
+#code li[ng-controller="transformer"] *,
+#code li[ng-controller="editor"] .CodeMirror-gutters {
+	cursor: default;
+}
+
+#code .CodeMirror {
+	width: 100%;
+	height: 100%;
+}
+
+#code li[ng-controller="editor"] .CodeMirror {
+	cursor: text;
+	transition: border-color 300ms ease;
+}
+
+#code li[ng-controller="editor"] .CodeMirror:hover {
+	cursor: text;
+	border: 1px solid rgba(255, 190, 25, 1);
+}
+
+#code > blockquote > p {
+	height: 32px;
+	line-height: 32px;
+	font-size: 14px;
+}
+
+#code > blockquote > p::before {
+	content: attr(data-error);
+	display: inline-block;
+	padding: 0 1em;
+	background-color: #8c0000;
+}

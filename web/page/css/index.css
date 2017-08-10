@@ -1,0 +1,108 @@
+body > header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 60px;
+	line-height: 60px;
+	z-index: 9;
+	text-align: center;
+	font-size: 14px;
+	color: rgba(255, 255, 255, 0.9);
+	background-color: #33363f;
+	box-shadow: 0 0 10px #33363f;
+}
+
+body > header + * {
+	margin-top: 60px;
+	min-height: 100%;
+}
+
+body > header > aside {
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 32px;
+	line-height: 32px;
+	width: 150px;
+	font-style: italic;
+	font-weight: bold;
+	color: #fff;
+	text-shadow: 0 0 10px #f3af12;
+	background-color: #a00000;
+	transform: rotate(-45deg) translate3d(-28%, -18%, 0);
+	-ms-transform: rotate(-45deg) translate3d(-28%, -18%, 0);
+	overflow: hidden;
+}
+
+body > header span {
+	display: block;
+	animation: madeInChina 500ms 1 ease-in;
+}
+
+body > header > ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	padding: 0 1.5em;
+}
+
+body > header li:not(:last-child) {
+	margin-right: 5%;
+}
+
+body > header button:hover {
+	text-decoration: underline;
+}
+
+body  > footer {
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	background-color: #3a3e46;
+}
+
+[data-status]::after {
+	content: "√";
+	font-family: Consolas;
+	color: #5bc100;
+	font-weight: bold;
+	font-size: 16px;
+	margin-left: 2px;
+}
+
+[data-status="0"]::after {
+	content: "?";
+	color: #ecb100;
+}
+
+[data-status="2"]::after {
+	content: "666";
+	color: red;
+}
+
+
+[ng-app="rexjs"] .CodeMirror {
+	height: auto;
+	border: 1px solid rgba(255, 190, 25, 0.6);
+	font-family: Consolas;
+	background-color: #fdfae9;
+}
+
+@keyframes madeInChina {
+	0% {
+		opacity: 0;
+		transform: scale(1) rotate(360deg);
+		-ms-transform: scale(1) rotate(360deg);
+	}
+	80% {
+		opacity: 0.8;
+		transform: scale(1.3) rotate(0);
+		-ms-transform: scale(1.3) rotate(0);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1) rotate(0);
+		-ms-transform: scale(1) rotate(0);
+	}
+}

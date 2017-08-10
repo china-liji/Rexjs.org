@@ -1,0 +1,19 @@
+#browser > ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	text-align: center;
+}
+
+#browser li {
+	width: 120px;
+}
+
+#browser li::before {
+	content: "";
+	display: block;
+	height: 72px;
+	margin-bottom: 1em;
+	background: url(page/home/image/w72-s75.png) no-repeat center center;
+	background-position: inherit;
+}
