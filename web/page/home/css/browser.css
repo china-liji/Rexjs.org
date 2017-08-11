@@ -1,12 +1,9 @@
 #browser > ul {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
 	text-align: center;
 }
 
 #browser li {
-	width: 120px;
+	width: 25%;
 }
 
 #browser li::before {

@@ -1,19 +1,17 @@
-article[data-page="home"] {
+section[data-page="home"] {
 	background-color: #eee;
 }
 
-article[data-page="home"] > section {
+section[data-page="home"] > ul {
 	padding: 100px 0;
-	width: 960px;
-	margin: 0 auto;
 }
 
-article[data-page="home"] [id] {
+section[data-page="home"] [id] {
 	padding: 50px 0;
 	position: relative;
 }
 
-article[data-page="home"] > section header {
+section[data-page="home"] li > header {
 	height: 1.5em;
 	font-size: 16px;
 	text-align: right;
@@ -21,7 +19,7 @@ article[data-page="home"] > section header {
 	margin-bottom: 30px;
 }
 
-article[data-page="home"] > section header::before {
+section[data-page="home"] li > header::before {
 	content: "-";
 	margin-right: 0.5em;
 }

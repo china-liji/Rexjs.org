@@ -16,41 +16,39 @@
 			<aside>
 				<span>Made In China</span>
 			</aside>
-			<ul ng-init='
-				links = [{
-					text: "网站首页",
-					name: "home"
-				}, {
-					text: "开始使用",
-					name: "start"
-				}, {
-					text: "解析预览",
-					name: "preview"
-				}, {
-					text: "问题反馈",
-					name: "feedback"
-				}, {
-					text: "关于我们",
-					name: "about"
-				}];
-			'>
+			<ul
+				data-display="inline-block-container"
+				ng-init='
+					links = [{
+						text: "网站首页",
+						name: "home"
+					}, {
+						text: "解析预览",
+						name: "preview"
+					}, {
+						text: "问题反馈",
+						name: "feedback"
+					}, {
+						text: "关于我们",
+						name: "about"
+					}];
+				'
+			>
 				<li ng-repeat="link in links track by $index">
-					<button>{{link.text}}</button>
+					<a ui-sref="{{link.name}}">{{link.text}}</a>
 				</li>
 			</ul>
 		</header>
-		<div data-ui-view></div>
-		<footer data-color="white">
-			<blockquote>
-				备案号xxx
-			</blockquote>
-			<p>
-				<script src="rex.min.js"></script>
-				<script src="common/lib/angular.min.js"></script>
-				<script src="common/lib/router.min.js"></script>
+		<div>
+			<article data-ui-view></article>
+			<footer data-color="white">备案号xxx</footer>
+		</div>
+		<footer>
+			<script src="rex.min.js"></script>
+			<script src="common/lib/angular.min.js"></script>
+			<script src="common/lib/router.min.js"></script>
 
-				<script src="page/js/index.js"></script>
-			</p>
+			<script src="page/js/index.js"></script>
 		</footer>
 	</body>
 </html>

@@ -16,15 +16,11 @@
 }
 
 #code ul {
-	text-align: left;
 	margin-top: 80px;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
 }
 
 #code li {
+	text-align: left;
 	max-width: 100%;
 	width: 520px;
 	height: 300px;

@@ -1,0 +1,97 @@
+[{
+	"text": "100% 可执行的函数",
+	"name": "tryFunction",
+	"status": 2
+}, {
+	"text": "const 声明",
+	"name": "const",
+	"status": 1
+}, {
+	"text": "for of 迭代",
+	"name": "forOf",
+	"status": 1
+}, {
+	"text": "let 声明",
+	"name": "let",
+	"status": 1
+}, {
+	"text": "八进制数字",
+	"name": "octalNumber",
+	"status": 1
+}, {
+	"text": "对象属性初始化",
+	"name": "propertyInitializer",
+	"status": 2
+}, {
+	"text": "对象计算式方法",
+	"name": "computedMethod",
+	"status": 1
+}, {
+	"text": "对象简写方法",
+	"name": "shorthandMethod",
+	"status": 1
+}, {
+	"text": "对象简写属性",
+	"name": "shorthandProperty",
+	"status": 1
+}, {
+	"text": "对象拓展符",
+	"name": "objectSpread",
+	"status": 0
+}, {
+	"text": "函数生成器",
+	"name": "generator",
+	"status": 0
+}, {
+	"text": "函数省略参数",
+	"name": "restArgument",
+	"status": 1
+}, {
+	"text": "计算式属性名",
+	"name": "computedName",
+	"status": 1
+}, {
+	"text": "箭头函数",
+	"name": "arrorFunction",
+	"status": 1
+}, {
+	"text": "解构赋值",
+	"name": "destructuring",
+	"status": 1
+}, {
+	"text": "类",
+	"name": "class",
+	"status": 1
+}, {
+	"text": "幂",
+	"name": "exponentiation",
+	"status": 1
+}, {
+	"text": "模块导入",
+	"name": "import",
+	"status": 1
+}, {
+	"text": "模块输出",
+	"name": "export",
+	"status": 1
+}, {
+	"text": "默认参数",
+	"name": "defaultArgument",
+	"status": 1
+}, {
+	"text": "二进制数字",
+	"name": "binaryNumber",
+	"status": 1
+}, {
+	"text": "数组拓展符",
+	"name": "arraySpread",
+	"status": 0
+}, {
+	"text": "拓展符",
+	"name": "spread",
+	"status": 1
+}, {
+	"text": "字符串模板",
+	"name": "template",
+	"status": 1
+}]

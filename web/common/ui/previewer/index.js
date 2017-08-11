@@ -3,9 +3,9 @@ import "../code-mirror/codemirror.css";
 import "../code-mirror/codemirror.min.js";
 import "../js-beautify/beautify.min.js";
 
-export let { Editor, Transformer, CodeMirror } = new function(RegExp, LINE_TERMINATOR_REGEXP_SOURCE, defaults){
+export let { Editor, Transformer, CodeMirror } = new function(RegExp, LINE_TERMINATOR_REGEXP_SOURCE, defaults, forEach){
 
-this.CodeMirror = function(OriginMirror, set, formatTextContent){
+this.CodeMirror = function(OriginMirror, assign, formatTextContent){
 	return class CodeMirror {
 		constructor($element, $attrs){
 			var originMirror, { 0: element, 0: { textContent } } = $element, mode = $attrs.mode || "javascript";
@@ -13,22 +13,17 @@ this.CodeMirror = function(OriginMirror, set, formatTextContent){
 			if(mode === "htmlmixed"){
 				textContent = formatTextContent(element);
 			}
-			else {
-				textContent = textContent.trim();
-			}
 
 			element.innerHTML = "";
 
 			originMirror = new OriginMirror(
 				element,
-				set(
-					set(
-						{
-							mode,
-							theme: $attrs.theme || "default"
-						},
-						defaults
-					),
+				assign(
+					{
+						mode,
+						theme: $attrs.theme || "default"
+					},
+					defaults,
 					this.options
 				),
 				defaults
@@ -49,7 +44,15 @@ this.CodeMirror = function(OriginMirror, set, formatTextContent){
 	};
 }(
 	window.CodeMirror,
-	Rexjs.set,
+	// assign
+	(obj, ...objs) => {
+		// 兼容 IE
+		objs.forEach((o) => {
+			forEach(o, (value, name) => obj[name] = value);
+		});
+
+		return obj;
+	},
 	// formatTextContent
 	(element) => {
 		return (
@@ -161,5 +164,6 @@ this.Transformer = function(CodeMirror, ECMAScriptParser, File, js_beautify){
 		styleActiveLine: true,
 		matchBrackets: true,
 		readOnly: true
-	}
+	},
+	Rexjs.forEach
 );

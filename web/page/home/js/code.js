@@ -36,7 +36,7 @@ this.Controller = function(angular){
 		};
 
 		static get controllerName(){
-			return "code";
+			return "home-code";
 		};
 	};
 }(

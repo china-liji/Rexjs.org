@@ -1,0 +1,14 @@
+section[data-page="feedback"] {
+	position: absolute;
+	top: 36%;
+	left: 50%;
+	margin: 0 0 0 -500px;
+	text-align: center;
+	white-space: normal;
+	font-size: 16px;
+	line-height: 60px;
+}
+
+section[data-page="feedback"] a {
+	color: red;
+}

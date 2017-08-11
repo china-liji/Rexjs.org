@@ -1,18 +1,16 @@
-<article data-page="home">
-	<header id="code" ng-controller="code" data-color="white">
+<section data-page="home">
+	<header id="code" ng-controller="home-code" data-color="white">
 		<p>Rexjs 是一款在浏览器中直接引用，便可运行 es6 语法的编译器！</p>
 		<blockquote>
-			<ul>
-				<li ng-controller="editor" data-theme="ambiance" data-tip="ECMAScript 6（2015）">
-					// 输入需要转换的代码
-				</li>
-				<li ng-controller="transformer" data-theme="ambiance" data-tip="ECMAScript 5"></li>
+			<ul data-display="inline-block-container">
+				<li ng-controller="editor" data-theme="ambiance" data-tip="ECMAScript 6（2015）">"你好 Rexjs.org！"</li>
+				<li ng-controller="transformer" data-theme="ambiance" data-tip="ECMAScript 5">"你好 Rexjs.org！"</li>
 			</ul>
 			<p data-error="{{error}}"></p>
 		</blockquote>
 	</header>
-	<section>
-		<blockquote id="learn">
+	<ul data-fixedwidth>
+		<li id="learn">
 			<header>新手教程</header>
 			<dl>
 				<dt>我们只需要在页面中引用 Rexjs，再利用 script 标签加载模块即可，如：</dt>
@@ -33,153 +31,73 @@
 					</noscript>
 				</dd>
 			</dl>
-			<footer data-color="white">
-				<a href="https://git.oschina.net/jQun/Rexjs/repository/archive/master" target="_blank" data-radius>
-					立即下载 Rexjs-master.zip
+			<footer
+				data-color="white"
+				ng-init='hrefs = [{
+					text: "访问 git 仓库",
+					address: "https://git.oschina.net/jQun/Rexjs",
+					type: "repo"
+				}, {
+					text: "立即下载 Rexjs-master.zip",
+					address: "https://git.oschina.net/jQun/Rexjs/repository/archive/master",
+					type: "zip"
+				}]'
+			>
+				<a ng-repeat="href in hrefs track by $index" ng-href="href.address" data-type="{{href.type}}" target="_blank" data-radius>
+					{{href.text}}
 				</a>
 			</footer>
-		</blockquote>
-		<blockquote id="browser">
+		</li>
+		<li id="browser">
 			<header>浏览器支持</header>
-			<ul ng-init='
-				browsers = [{
-					title: "谷歌浏览器",
-					text: "Chrome",
-					y: 0
-				}, {
-					title: "IE",
-					text: "ie9+",
-					y: 2
-				}, {
-					title: "苹果浏览器",
-					text: "Safari",
-					y: 3
-				}, {
-					title: "火狐浏览器",
-					text: "Firefox",
-					y: 1
-				}];
-			'>
+			<ul
+				data-display="inline-block-container"
+				ng-init='
+					browsers = [{
+						title: "谷歌浏览器",
+						text: "Chrome",
+						y: 0
+					}, {
+						title: "IE",
+						text: "ie9+",
+						y: 2
+					}, {
+						title: "苹果浏览器",
+						text: "Safari",
+						y: 3
+					}, {
+						title: "火狐浏览器",
+						text: "Firefox",
+						y: 1
+					}];
+				'
+			>
 				<li ng-repeat="browser in browsers track by $index" title="{{browser.title}}" ng-style='{"background-position":"center -" + (browser.y * 75) + "px"}' data-status="1">
 					{{browser.text}}
 				</li>
 			</ul>
-		</blockquote>
-		<blockquote id="syntax">
+		</li>
+		<li id="syntax" ng-controller="home-syntax">
 			<header>ECMAScript6 语法支持</header>
-			<ol ng-init='
-				list = [{
-					text: "100% 可执行的函数",
-					link: "tryFunction",
-					status: 2
-				}, {
-					text: "const 声明",
-					link: "const",
-					status: 1
-				}, {
-					text: "for of 迭代",
-					link: "forOf",
-					status: 1
-				}, {
-					text: "let 声明",
-					link: "let",
-					status: 1
-				}, {
-					text: "八进制数字",
-					link: "octalNumber",
-					status: 1
-				}, {
-					text: "对象属性初始化",
-					link: "propertyInitializer",
-					status: 2
-				}, {
-					text: "对象计算式方法",
-					link: "computedMethod",
-					status: 1
-				}, {
-					text: "对象简写方法",
-					link: "shorthandMethod",
-					status: 1
-				}, {
-					text: "对象简写属性",
-					link: "shorthandProperty",
-					status: 1
-				}, {
-					text: "对象拓展符",
-					link: "objectSpread",
-					status: 0
-				}, {
-					text: "函数生成器",
-					link: "generator",
-					status: 0
-				}, {
-					text: "函数省略参数",
-					link: "restArgument",
-					status: 1
-				}, {
-					text: "计算式属性名",
-					link: "computedName",
-					status: 1
-				}, {
-					text: "箭头函数",
-					link: "arrorFunction",
-					status: 1
-				}, {
-					text: "解构赋值",
-					link: "destructuring",
-					status: 1
-				}, {
-					text: "类",
-					link: "class",
-					status: 1
-				}, {
-					text: "幂",
-					link: "exponentiation",
-					status: 1
-				}, {
-					text: "模块导入",
-					link: "import",
-					status: 1
-				}, {
-					text: "模块输出",
-					link: "export",
-					status: 1
-				}, {
-					text: "默认参数",
-					link: "defaultArgument",
-					status: 1
-				}, {
-					text: "二进制数字",
-					link: "binaryNumber",
-					status: 1
-				}, {
-					text: "数组拓展符",
-					link: "arraySpread",
-					status: 0
-				}, {
-					text: "拓展符",
-					link: "spread",
-					status: 1
-				}, {
-					text: "字符串模板",
-					link: "template",
-					status: 1
-				}];
-				titles = [
-					"该功能正在努力解析中...",
-					"成功解析",
-					"成功解析 & Rexjs 特色"
-				];
-			'>
-				<li ng-repeat="item in list track by $index">
+			<ol
+				data-display="inline-block-container"
+				ng-init='
+					titles = [
+						"该功能正在努力解析中...",
+						"成功解析",
+						"成功解析 & Rexjs 特色"
+					];
+				'
+			>
+				<li ng-repeat="syntax in syntaxList track by $index">
 					<a href="javascript:void 0;">
-						{{item.text}}
-						<span data-status="{{item.status}}" title="{{titles[item.status]}}"></span>
+						{{syntax.text}}
+						<span data-status="{{syntax.status}}" title="{{titles[syntax.status]}}"></span>
 					</a>
 				</li>
 			</ol>
-		</blockquote>
-		<blockquote id="profile" ng-controller="profile">
+		</li>
+		<li id="profile" ng-controller="home-profile">
 			<header>性能 vs 性能</header>
 			<figure>
 				<figcaption>
@@ -190,14 +108,21 @@
 						</a>
 					</q>
 				</figcaption>
-				<dl data-description="{{description}}">
-					<dt>
-						<span ng-repeat="number in secs track by $index">{{number}}</span>
+				<dl data-display="inline-block-container">
+					<dt ng-init="itemHeight=100 / (secs.length - 1);">
+						<span ng-repeat="number in secs track by $index" title="解析耗时" ng-style='{height:"{{itemHeight}}%"}'>
+							{{number}}
+						</span>
 					</dt>
 					<dd>
-						<svg xmlns="http://www.w3.org/2000/svg" width="800" height="300"></svg>
-						<p>
-							<span ng-repeat="number in sizes track by $index">{{number}}</span>
+						<blockquote>
+							<p>{{description}}</p>
+							<svg xmlns="http://www.w3.org/2000/svg" width="800" height="300"></svg>
+						</blockquote>
+						<p ng-init="itemWidth=100 / (sizes.length - 1);" data-display="inline-block-container">
+							<span ng-repeat="number in sizes track by $index" title="所解析的文件大小为：{{number}}kb" ng-style='{width:"{{itemWidth}}%"}'>
+								{{number}}
+							</span>
 						</p>
 					</dd>
 				</dl>
@@ -208,6 +133,6 @@
 					{{surplus > 0 ? "剩余 " + surplus + " 项测试中..." : "开始测试"}}
 				</button>
 			</footer>
-		</blockquote>
-	</section>
-</article>
+		</li>
+	</ul>
+</section>

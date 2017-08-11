@@ -31,7 +31,7 @@ this.Controller = function(Worker, document, configs, secs, sizes, codeOf){
 		};
 
 		static get controllerName(){
-			return "profile";
+			return "home-profile";
 		};
 
 		test(type, svgElement, color, _callback){

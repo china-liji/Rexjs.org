@@ -10,9 +10,14 @@
 
 #learn a {
 	display: inline-block;
-	background-color: #00a979;
+	background-color: #0074a9;
 	height: 42px;
 	line-height:  42px;
 	font-size: 14px;
 	padding: 0 1em;
+	margin: 0 16px;
+}
+
+#learn a[data-type="zip"] {
+	background-color: #00a979;
 }

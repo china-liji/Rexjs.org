@@ -109,7 +109,7 @@ input[type="file"] {
 }
 
 
-[data-model="fixed-width"] {
+[data-fixedwidth] {
 	width : 1000px;
 	margin : 0 auto;
 }

@@ -1,9 +1,3 @@
-#profile dl {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-}
-
 #profile figure {
 	width: 830px;
 	margin: 0 auto;
@@ -34,29 +28,26 @@
 	margin: 30px 0;
 }
 
-#profile dl:not([data-description=""])::before {
-	content: attr(data-description)"";
+#profile blockquote > p {
 	position: absolute;
 	top: 0;
 	right: 0;
+	height: auto;
 	padding: 2px 6px;
 	background-color: rgba(0, 0, 0, 0.6);
 	color: #fff;
 }
 
-#profile dt, #profile dd p {
-	display: flex;
-	justify-content: space-between;
-	text-align: center;
-	position: relative;
+#profile blockquote > p:empty {
+	display: none;
 }
 
 #profile dt {
 	height: 100%;
 	width: 30px;
-	flex-direction: column;
 	padding: 0 6px 20px 0;
 	text-align: right;
+	position: relative;
 }
 
 #profile dt::before {
@@ -67,18 +58,21 @@
 	margin-bottom: 6px;
 }
 
-#profile dd > p {
-	width: 100%;
-	flex-direction: row;
-	text-align: center;
+#profile dt > span {
+	display: block;
 }
 
-#profile dd > p::after {
+#profile dd > p {
+	width: 100%;
+	white-space: nowrap;
+}
+
+#profile dd span:first-child {
+	opacity: 0;
+}
+
+#profile dd span:last-child::after {
 	content: "（kb）";
-	position: absolute;
-	bottom: 0;
-	left: 100%;
-	margin-left: 6px;
 }
 
 #profile svg {

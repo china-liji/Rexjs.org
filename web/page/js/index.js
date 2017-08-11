@@ -60,6 +60,8 @@ this.Module = function(File, angular, app, forEach){
 					$stateProvider.state(name, config);
 				}
 			);
+
+			$urlRouterProvider.otherwise("/home");
 		});
 
 		origin.service("$file", File);
@@ -82,48 +84,43 @@ this.Module = function(File, angular, app, forEach){
 );
 
 new this.Module();
-// window.rexjsAngularModule = new this.Module();
 }(
 	Rexjs,
 	// controllerProvider
 	null,
 	// routeConfigs
-	{
-		home: {
-			url: "",
-			templateUrl: "page/home/index.html",
-			resolve: {
-				browser: function($file){
-					return $file.load("page/home/css/browser.css");
-				},
-				code: function($file){
-					return $file.load("page/home/js/code.js");
-				},
-				index: function($file){
-					return $file.load("page/home/css/index.css");
-				},
-				learn: function($file){
-					return $file.load("page/home/css/learn.css");
-				},
-				previewer: function($file){
-					return $file.load("common/ui/previewer");
-				},
-				profile: function($file){
-					return $file.load("page/home/js/profile.js");
-				},
-				syntax: function($file){
-					return $file.load("page/home/css/syntax.css");
-				}
-			}
+	Rexjs.map(
+		{
+			home: [
+				"page/home/css/browser.css",
+				"page/home/css/index.css",
+				"page/home/css/learn.css",
+				"common/ui/previewer",
+				"page/home/js/code.js",
+				"page/home/js/syntax.js",
+				"page/home/js/profile.js"
+			],
+			feedback: [
+				"page/feedback/css/index.css"
+			],
+			preview: [
+				"page/home/js/preview.js"
+			]
 		},
-		feedback: {
-			url: "/feedback",
-			templateUrl: "page/feedback/index.html",
-			resolve: {
-				index: function($file){
-					return $file.load("page/feedback/css/index.css");
+		function(filenames, name){
+			var resolve = {};
+
+			filenames.forEach(function(filename, i){
+				resolve[i] = function($file){
+					return $file.load(filename);
 				}
-			}
+			});
+
+			return {
+				url: "/" + name,
+				templateUrl: "page/" + name + "/index.html",
+				resolve: resolve
+			};
 		}
-	}
+	)
 );
