@@ -1,14 +1,14 @@
-#learn dt {
+#home-learn dt {
 	line-height: 32px;
 	font-size: 14px;
 }
 
-#learn > footer {
+#home-learn > footer {
 	margin-top: 30px;
 	text-align: center;
 }
 
-#learn a {
+#home-learn a {
 	display: inline-block;
 	background-color: #0074a9;
 	height: 42px;
@@ -18,6 +18,6 @@
 	margin: 0 16px;
 }
 
-#learn a[data-type="zip"] {
+#home-learn a[data-type="zip"] {
 	background-color: #00a979;
 }

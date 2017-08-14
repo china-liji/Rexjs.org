@@ -1,25 +1,24 @@
-#code {
-	background-color: #222;
+#home-code {
 	text-align: center;
 	width: 100%;
 }
 
-#code > * {
+#home-code > * {
 	margin: 0 auto;
 	width: 100%;
 }
 
-#code > p {
+#home-code > p {
 	font-size: 28px;
 	white-space: normal;
 	color: #e8d012;
 }
 
-#code ul {
+#home-code ul {
 	margin-top: 80px;
 }
 
-#code li {
+#home-code li {
 	text-align: left;
 	max-width: 100%;
 	width: 520px;
@@ -27,49 +26,33 @@
 	margin: 0 15px 20px 15px;
 }
 
-[data-tip] {
-	position: relative;
-	overflow: hidden;
-}
-
-[data-tip]::before {
-	content: attr(data-tip);
-	position: absolute;
-	top: 0;
-	right: 0;
-	z-index: 1;
-	padding: 3px 8px;
-	box-shadow: 0 0 5px #888;
-	color: #d61b70;
-}
-
-#code li[ng-controller="transformer"] *,
-#code li[ng-controller="editor"] .CodeMirror-gutters {
+#home-code li[ng-controller="transformer"] *,
+#home-code li[ng-controller="editor"] .CodeMirror-gutters {
 	cursor: default;
 }
 
-#code .CodeMirror {
+#home-code .CodeMirror {
 	width: 100%;
 	height: 100%;
 }
 
-#code li[ng-controller="editor"] .CodeMirror {
+#home-code li[ng-controller="editor"] .CodeMirror {
 	cursor: text;
 	transition: border-color 300ms ease;
 }
 
-#code li[ng-controller="editor"] .CodeMirror:hover {
+#home-code li[ng-controller="editor"] .CodeMirror:hover {
 	cursor: text;
 	border: 1px solid rgba(255, 190, 25, 1);
 }
 
-#code > blockquote > p {
+#home-code > blockquote > p {
 	height: 32px;
 	line-height: 32px;
 	font-size: 14px;
 }
 
-#code > blockquote > p::before {
+#home-code > blockquote > p::before {
 	content: attr(data-error);
 	display: inline-block;
 	padding: 0 1em;

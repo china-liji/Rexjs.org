@@ -1,97 +1,125 @@
 [{
 	"text": "100% 可执行的函数",
 	"name": "tryFunction",
-	"status": 2
+	"status": 2,
+	"code": "try getNextNumber() + 10;",
+	"description": "如果调用目标函数存在，则返回函数返回值，否则返回 undefined。",
+	"reason": "很多时候，回调函数可以不被提供，但是每次都要判断是否存在，再去执行，很麻烦，所以我们决定，将其大大简化，提供了该表达式的解析。"
 }, {
 	"text": "const 声明",
 	"name": "const",
-	"status": 1
+	"status": 1,
+	"code": "const variable = 1;"
 }, {
 	"text": "for of 迭代",
 	"name": "forOf",
-	"status": 1
+	"status": 1,
+	"code": "for(var i of obj);"
 }, {
 	"text": "let 声明",
 	"name": "let",
-	"status": 1
+	"status": 1,
+	"code": "let variable = 1;"
 }, {
 	"text": "八进制数字",
 	"name": "octalNumber",
-	"status": 1
+	"status": 1,
+	"code": "0o12345670;"
 }, {
 	"text": "对象属性初始化",
 	"name": "propertyInitializer",
-	"status": 2
+	"status": 2,
+	"code": "obj = { a = 5 };",
+	"description": "如果变量 a 不存在，则将其值设置为 5。",
+	"reason": "功能效果类似于解构的默认值。"
 }, {
 	"text": "对象计算式方法",
 	"name": "computedMethod",
-	"status": 1
+	"status": 1,
+	"code": "obj = { [1 + 2](){} };"
 }, {
 	"text": "对象简写方法",
 	"name": "shorthandMethod",
-	"status": 1
+	"status": 1,
+	"code": "obj = { fn(){} };"
 }, {
 	"text": "对象简写属性",
 	"name": "shorthandProperty",
-	"status": 1
+	"status": 1,
+	"code": "obj = { a };"
 }, {
 	"text": "对象拓展符",
 	"name": "objectSpread",
-	"status": 0
+	"status": 0,
+	"code": ""
 }, {
 	"text": "函数生成器",
 	"name": "generator",
-	"status": 0
+	"status": 0,
+	"code": ""
 }, {
 	"text": "函数省略参数",
 	"name": "restArgument",
-	"status": 1
+	"status": 1,
+	"code": "function fn(...args){};"
 }, {
 	"text": "计算式属性名",
 	"name": "computedName",
-	"status": 1
+	"status": 1,
+	"code": "obj = { [1 + 2]: 1 };"
 }, {
 	"text": "箭头函数",
 	"name": "arrorFunction",
-	"status": 1
+	"status": 1,
+	"code": "fn = (x = 5, ...y) => { x + y[0] };"
 }, {
 	"text": "解构赋值",
 	"name": "destructuring",
-	"status": 1
+	"status": 1,
+	"code": "var { a, b = 2, c: c = 3 } = obj;"
 }, {
 	"text": "类",
 	"name": "class",
-	"status": 1
+	"status": 1,
+	"code": "class MyClass {};"
 }, {
 	"text": "幂",
 	"name": "exponentiation",
-	"status": 1
+	"status": 1,
+	"code": "2 ** 3"
 }, {
 	"text": "模块导入",
 	"name": "import",
-	"status": 1
+	"status": 1,
+	"code": "import def from \"x.js\";"
 }, {
 	"text": "模块输出",
 	"name": "export",
-	"status": 1
+	"status": 1,
+	"code": "export default function(){};"
 }, {
 	"text": "默认参数",
 	"name": "defaultArgument",
-	"status": 1
+	"status": 1,
+	"code": "function fn(x = 1){};"
 }, {
 	"text": "二进制数字",
 	"name": "binaryNumber",
-	"status": 1
+	"status": 1,
+	"code": "0b101"
 }, {
 	"text": "数组拓展符",
 	"name": "arraySpread",
-	"status": 0
+	"status": 0,
+	"code": ""
 }, {
 	"text": "拓展符",
 	"name": "spread",
-	"status": 1
+	"status": 1,
+	"code": "callback(1, 2, ...[3, 4]);"
 }, {
 	"text": "字符串模板",
 	"name": "template",
-	"status": 1
+	"status": 1,
+	"code": "`hello ${\"Rexjs\" + \"js\"}`;"
 }]

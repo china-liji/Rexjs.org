@@ -3,7 +3,7 @@ section[data-page="home"] {
 }
 
 section[data-page="home"] > ul {
-	padding: 100px 0;
+	padding: 60px 0;
 }
 
 section[data-page="home"] [id] {
@@ -17,6 +17,7 @@ section[data-page="home"] li > header {
 	text-align: right;
 	padding: 0 2em;
 	margin-bottom: 30px;
+	color: #c50000;
 }
 
 section[data-page="home"] li > header::before {

@@ -1,34 +1,34 @@
-#profile figure {
+#home-profile figure {
 	width: 830px;
 	margin: 0 auto;
 }
 
-#profile figcaption {
+#home-profile figcaption {
 	text-align: right;
 	
 }
 
-#profile figcaption > q {
+#home-profile figcaption > q {
 	display: inline-block;
 	margin-left: 2em;
 }
 
-#profile figcaption > q::before,
-#profile figcaption > q::after {
+#home-profile figcaption > q::before,
+#home-profile figcaption > q::after {
 	content: "";
 }
 
-#profile figcaption span {
+#home-profile figcaption span {
 	font-size: 18px;
 }
 
-#profile dl {
+#home-profile dl {
 	height: 320px;
 	position: relative;
 	margin: 30px 0;
 }
 
-#profile blockquote > p {
+#home-profile blockquote > p {
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -38,11 +38,11 @@
 	color: #fff;
 }
 
-#profile blockquote > p:empty {
+#home-profile blockquote > p:empty {
 	display: none;
 }
 
-#profile dt {
+#home-profile dt {
 	height: 100%;
 	width: 30px;
 	padding: 0 6px 20px 0;
@@ -50,7 +50,7 @@
 	position: relative;
 }
 
-#profile dt::before {
+#home-profile dt::before {
 	content: "（秒）";
 	position: absolute;
 	bottom: 100%;
@@ -58,56 +58,56 @@
 	margin-bottom: 6px;
 }
 
-#profile dt > span {
+#home-profile dt > span {
 	display: block;
 }
 
-#profile dd > p {
+#home-profile dd > p {
 	width: 100%;
 	white-space: nowrap;
 }
 
-#profile dd span:first-child {
+#home-profile dd span:first-child {
 	opacity: 0;
 }
 
-#profile dd span:last-child::after {
+#home-profile dd span:last-child::after {
 	content: "（kb）";
 }
 
-#profile svg {
+#home-profile svg {
 	background: url(page/home/image/bg-repeat.png) repeat 0 0 #fff;
 	border: 1px solid #aaa;
 	overflow: hidden;
 }
 
-#profile line {
+#home-profile line {
 	stroke: red;
 	fill: none;
 	stroke-width: 2;
 }
 
-#profile circle {
+#home-profile circle {
 	fill: red;
 	stroke-width: 1;
 	r: 4;
 }
 
-#profile text {
+#home-profile text {
 	font-size: 14px;
 }
 
-#profile > footer {
+#home-profile > footer {
 	text-align: center;
 }
 
-#profile > footer > button {
+#home-profile > footer > button {
 	width: 120px;
 	height: 32px;
 	background-color: #b70000;
 }
 
-#profile > footer > button:disabled {
+#home-profile > footer > button:disabled {
 	opacity: 0.3;
 	cursor: default;
 }

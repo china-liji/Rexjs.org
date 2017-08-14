@@ -1,12 +1,12 @@
-#browser > ul {
+#home-browser > ul {
 	text-align: center;
 }
 
-#browser li {
+#home-browser li {
 	width: 25%;
 }
 
-#browser li::before {
+#home-browser li::before {
 	content: "";
 	display: block;
 	height: 72px;

@@ -1,0 +1,8 @@
+.syntax-list > p {
+	width: 20%;
+	line-height: 3em;
+}
+
+.syntax-list button:hover {
+	text-decoration: underline;
+}

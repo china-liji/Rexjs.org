@@ -1,5 +1,3 @@
-import "../css/code.css";
-
 export let { Controller } = new function(){
 
 this.Controller = function(angular){
@@ -16,7 +14,10 @@ this.Controller = function(angular){
 							$element[0].querySelector('[ng-controller="transformer"]')
 						)
 						.scope()
-						.code = value;
+						.$emit(
+							"code-mirror-fill-code",
+							value
+						);;
 				}
 			);
 

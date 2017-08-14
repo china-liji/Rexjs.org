@@ -1,4 +1,4 @@
-new function(Rexjs, controllerProvider, routeConfigs){
+new function(Rexjs, controllerProvider, compileProvider, routeConfigs){
 
 this.File = function(Module, forEach, q, registerController){
 	function File($q){
@@ -34,12 +34,38 @@ this.File = function(Module, forEach, q, registerController){
 				break;
 
 			case controllerProvider.has(controllerName):
-				break;
+				return;
 
 			default:
 				controllerProvider.register(controllerName, member);
-				break;
+				return;
 		}
+
+		var directiveName = member.directiveName
+
+		if(typeof directiveName !== "string"){
+			return;
+		}
+
+		if(directiveName.indexOf("-") > -1){
+			directiveName = (
+				directiveName.split("-").map(function(substring, i){
+					if(i === 0){
+						return substring;
+					}
+
+					return substring[0].toUpperCase() + substring.substring(1);
+				})
+				.join("")
+			);
+		}
+
+		compileProvider.directive(
+			directiveName,
+			function(){
+				return new member();
+			}
+		);
 	}
 );
 
@@ -48,8 +74,9 @@ this.Module = function(File, angular, app, forEach){
 		var origin = angular.module(
 			app,
 			["ui.router"],
-			function($controllerProvider){
+			function($controllerProvider, $compileProvider){
 				controllerProvider = $controllerProvider;
+				compileProvider = $compileProvider;
 			}
 		);
 
@@ -88,39 +115,61 @@ new this.Module();
 	Rexjs,
 	// controllerProvider
 	null,
+	// compileProvider
+	null,
 	// routeConfigs
-	Rexjs.map(
+	Rexjs.forEach(
 		{
-			home: [
-				"page/home/css/browser.css",
-				"page/home/css/index.css",
-				"page/home/css/learn.css",
-				"common/ui/previewer",
-				"page/home/js/code.js",
-				"page/home/js/syntax.js",
-				"page/home/js/profile.js"
-			],
-			feedback: [
-				"page/feedback/css/index.css"
-			],
-			preview: [
-				"page/home/js/preview.js"
-			]
+			home: {
+				url: "/home",
+				templateUrl: "page/home/index.html",
+				resolve: [
+					"page/home/css/browser.css",
+					"page/home/css/index.css",
+					"page/home/css/code.css",
+					"page/home/css/learn.css",
+					"page/home/css/profile.css",
+					"common/ui/previewer",
+					"common/ui/syntax-list",
+					"page/home/js/code.js",
+					"page/home/js/learn.js",
+					"page/home/js/profile.js"
+				]
+			},
+			feedback: {
+				url: "/feedback",
+				templateUrl: "page/feedback/index.html",
+				resolve: [
+					"page/feedback/css/index.css"
+				]
+			},
+			preview: {
+				url: "/preview",
+				templateUrl: "page/preview/index.html",
+				params: {
+					name: ""
+				},
+				resolve: [
+					"page/preview/css/nav.css",
+					"page/preview/css/details.css",
+					"common/ui/syntax-list",
+					"common/ui/previewer",
+					"page/preview/js/index.js",
+					"page/preview/js/nav.js",
+					"page/preview/js/details.js"
+				]
+			}
 		},
-		function(filenames, name){
+		function(state){
 			var resolve = {};
 
-			filenames.forEach(function(filename, i){
+			state.resolve.forEach(function(filename, i){
 				resolve[i] = function($file){
 					return $file.load(filename);
 				}
 			});
 
-			return {
-				url: "/" + name,
-				templateUrl: "page/" + name + "/index.html",
-				resolve: resolve
-			};
+			state.resolve = resolve;
 		}
 	)
 );

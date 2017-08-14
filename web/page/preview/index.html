@@ -1,0 +1,25 @@
+<section ng-controller="preview">
+	<header id="preview-nav" ng-controller="preview-nav" data-color="white" data-bgcolor="light-black">
+		<syntax-list></syntax-list>
+	</header>
+	<ol id="preview-details" ng-controller="preview-details" data-fixedwidth>
+		<li ng-repeat="syntax in syntaxList track by $index">
+			<dl>
+				<dt data-color="white" data-name="{{syntax.name}}">
+					<strong>#</strong>
+					{{syntax.text}}
+				</dt>
+				<dd ng-if="syntax.status > 0">
+					<p ng-controller="code-mirror" data-code="{{syntax.code}}" data-tip="源码"></p>
+					<p ng-controller="transformer" data-code="{{syntax.code}}" data-tip="解析"></p>
+				</dd>
+				<dd ng-if="syntax.status === 0" data-color="deep-gray"></dd>
+			</dl>
+			<p ng-if="syntax.status === 2">
+				描述：{{syntax.description}}
+				<br />
+				理由：{{syntax.reason}}
+			</p>
+		</li>
+	</ol>
+</section>

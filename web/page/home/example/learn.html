@@ -1,0 +1,12 @@
+<!-- 引用 rexjs -->
+<script src="http://rexjs.org/rexjs.min.js"></script>
+
+<!-- 使用 type 定义模块 -->
+<script type="text/rexjs">
+	import "./file.js";
+
+	export default class {};
+</script>
+
+<!-- 当然，一旦指定 src，则根据其路径来加载指定模块文件 -->
+<script src="./file.js" type="text/rexjs"></script>

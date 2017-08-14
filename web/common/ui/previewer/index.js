@@ -3,24 +3,18 @@ import "../code-mirror/codemirror.css";
 import "../code-mirror/codemirror.min.js";
 import "../js-beautify/beautify.min.js";
 
-export let { Editor, Transformer, CodeMirror } = new function(RegExp, LINE_TERMINATOR_REGEXP_SOURCE, defaults, forEach){
+export let { Editor, Transformer, CodeMirror } = new function(ECMAScriptParser, RegExp, LINE_TERMINATOR_REGEXP_SOURCE, defaults, forEach){
 
 this.CodeMirror = function(OriginMirror, assign, formatTextContent){
 	return class CodeMirror {
-		constructor($element, $attrs){
-			var originMirror, { 0: element, 0: { textContent } } = $element, mode = $attrs.mode || "javascript";
-
-			if(mode === "htmlmixed"){
-				textContent = formatTextContent(element);
-			}
-
-			element.innerHTML = "";
-
-			originMirror = new OriginMirror(
-				element,
+		constructor($scope, $element, $attrs){
+			var originMirror;
+			
+			this.originMirror = originMirror = new OriginMirror(
+				$element[0],
 				assign(
 					{
-						mode,
+						mode: $attrs.mode || "javascript",
 						theme: $attrs.theme || "default"
 					},
 					defaults,
@@ -29,17 +23,23 @@ this.CodeMirror = function(OriginMirror, assign, formatTextContent){
 				defaults
 			);
 
-			originMirror.setValue(textContent);
+			$element.ready(() => {
+				var code = $attrs.code || "";
 
-			this.originMirror = originMirror;
+				if($scope.$emit("code-mirror-fill-code", code).defaultPrevented){
+					return;
+				}
+
+				originMirror.setValue(code);
+			});
+		};
+
+		static get controllerName(){
+			return "code-mirror";
 		};
 
 		get options(){
 			return {};
-		};
-
-		static get controllerName(){
-			return "codeMirror";
 		};
 	};
 }(
@@ -78,19 +78,31 @@ this.CodeMirror = function(OriginMirror, assign, formatTextContent){
 this.Editor = function(CodeMirror){
 	return class Editor extends CodeMirror {
 		constructor($scope, $element, $attrs){
-			var originMirror = super($element, $attrs).originMirror;
-
-			originMirror.on(
+			super(
+				$scope,
+				$element,
+				$attrs
+			)
+			.originMirror
+			.on(
 				"change",
 				() => {
-					$scope.$apply(() => {
-						$scope.$emit(
-							"editor-change",
-							originMirror.getValue()
-						);
-					});
+					$scope.$emit(
+						"editor-change",
+						this.originMirror.getValue()
+					);
+
+					if($scope.$$phase === "$digest"){
+						return;
+					}
+
+					$scope.$apply();
 				}
 			);
+		};
+
+		static get controllerName(){
+			return "editor";
 		};
 
 		get options(){
@@ -99,62 +111,64 @@ this.Editor = function(CodeMirror){
 				readOnly: false
 			};
 		};
-
-		static get controllerName(){
-			return "editor";
-		};
 	};
 }(
 	this.CodeMirror
 );
 
-this.Transformer = function(CodeMirror, ECMAScriptParser, File, js_beautify){
+this.Transformer = function(CodeMirror, File, parser, js_beautify){
 	return class Transformer extends CodeMirror {
 		constructor($scope, $element, $attrs){
-			var originMirror = super($element, $attrs).originMirror, parser = new ECMAScriptParser();
-			
-			$scope.$watch(
-				"code",
-				(value) => {
+			super($scope, $element, $attrs);
+
+			$scope.$on(
+				"code-mirror-fill-code",
+				(e, code) => {
 					try {
 						parser.parse(
-							new File("test", value)
+							new File("test.js", code)
 						);
 
 						$scope.$emit("transformer-success");
 					}
 					catch(e){
-						$scope.$emit("transformer-error", e.toString());
+						$scope.$emit(
+							"transformer-error",
+							e.toString()
+						);
+
 						return;
 					}
 
-					originMirror.setValue(
+					this.originMirror.setValue(
 						js_beautify(
 							parser.build()
 						)
 					);
+
+					e.preventDefault();
 				}
 			);
-
-			$scope.code = originMirror.getValue();
-		};
-
-		get options(){
-			return {};
 		};
 
 		static get controllerName(){
 			return "transformer";
 		};
+
+		get options(){
+			return {};
+		};
 	};
 }(
 	this.CodeMirror,
-	Rexjs.ECMAScriptParser,
 	Rexjs.File,
+	// parser
+	new ECMAScriptParser(),
 	js_beautify
 );
 
 }(
+	Rexjs.ECMAScriptParser,
 	RegExp,
 	// LINE_TERMINATOR_REGEXP_SOURCE
 	/(?:^|\r\n?|\n|\u2028|\u2029)/.source,

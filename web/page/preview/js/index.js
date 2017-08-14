@@ -1,4 +1,3 @@
-import "../css/syntax.css";
 import syntaxList from "../../../common/data/syntax.json";
 
 export let { Controller } = new function(){
@@ -10,7 +9,7 @@ this.Controller = function(){
 		};
 
 		static get controllerName(){
-			return "home-syntax";
+			return "preview";
 		};
 	};
 }();

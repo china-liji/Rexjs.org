@@ -1,0 +1,29 @@
+#preview-details {
+	padding: 50px 0;
+}
+
+#preview-details li {
+	margin-bottom: 30px;
+}
+
+#preview-details dt {
+	font-size: 18px;
+	line-height: 2em;
+	background-color: #7b4848;
+	padding: 0 10px;
+}
+
+#preview-details dd:empty::before {
+	content: "该功能正在努力解析中...";
+	margin-top: 6px;
+	display: block;
+}
+
+#preview-details dd > p {
+	margin: 10px 0;
+}
+
+#preview-details li > p {
+	white-space: normal;
+	word-break: break-all;
+}

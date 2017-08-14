@@ -1,8 +1,6 @@
-import "../css/profile.css";
+export let { Controller } = new function(babelWorker, traceurWorker, rexjsWorker, origin){
 
-export let { Controller } = new function(workerSupported, origin){
-
-this.Controller = function(Worker, document, configs, secs, sizes, codeOf){
+this.Controller = function(document, configs, secs, sizes, workerSupported, codeOf){
 	return class Controller {
 		constructor($scope, $element){
 			var svgElement = $element[0].querySelector("svg");
@@ -14,8 +12,6 @@ this.Controller = function(Worker, document, configs, secs, sizes, codeOf){
 			$scope.configs = configs;
 			$scope.description = "";
 
-			codeOf(100);
-
 			$scope.start = () => {
 				var times = configs.length;
 
@@ -23,7 +19,7 @@ this.Controller = function(Worker, document, configs, secs, sizes, codeOf){
 				svgElement.innerHTML = "";
 
 				configs.forEach((config, i) => {
-					this.test(config.type, svgElement, config.color);
+					this.test(config.worker, config.type, svgElement, config.color);
 				});
 			};
 			
@@ -34,10 +30,8 @@ this.Controller = function(Worker, document, configs, secs, sizes, codeOf){
 			return "home-profile";
 		};
 
-		test(type, svgElement, color, _callback){
-			var i = 0, $scope = this.$scope, worker = new Worker(`page/home/js/${type}-worker.js`),
-			
-				{ clientWidth: width, clientHeight: height } = svgElement, x1 = 0, y1 = height;
+		test(worker, type, svgElement, color, _callback){
+			var i = 0, $scope = this.$scope, { clientWidth: width, clientHeight: height } = svgElement, x1 = 0, y1 = height;
 
 			worker.onmessage = (e) => {
 				var time = e.data.time, x2 = i / (sizes.length - 1) * width, y2 = height - time / secs[0] / 1000 * height;
@@ -72,8 +66,6 @@ this.Controller = function(Worker, document, configs, secs, sizes, codeOf){
 		}
 	};
 }(
-	// Worker
-	workerSupported ? Worker : null,
 	document,
 	// configs
 	[{
@@ -82,29 +74,52 @@ this.Controller = function(Worker, document, configs, secs, sizes, codeOf){
 		version: "6.25.0",
 		size: 765,
 		min: true,
-		href: "https://unpkg.com/babel-standalone@6/babel.min.js"
+		href: "https://unpkg.com/babel-standalone@6/babel.min.js",
+		get worker(){
+			if(!babelWorker){
+				babelWorker = new Worker(`page/home/js/${this.type}-worker.js`);
+			}
+
+			return babelWorker;
+		}
 	}, {
 		type: "traceur",
 		color: "green",
 		version: "0.0.112",
 		size: 1400,
 		min: false,
-		href: "https://google.github.io/traceur-compiler/bin/traceur.js"
+		href: "https://google.github.io/traceur-compiler/bin/traceur.js",
+		get worker(){
+			if(!traceurWorker){
+				traceurWorker = new Worker(`page/home/js/${this.type}-worker.js`);
+			}
+
+			return traceurWorker;
+		}
 	}, {
 		type: "rexjs",
 		color: "red",
 		version: "1.0.0",
 		size: 205,
 		min: true,
-		href: "http://rexjs.org/rex.min.js"
+		href: "http://rexjs.org/rex.min.js",
+		get worker(){
+			if(!rexjsWorker){
+				rexjsWorker = new Worker(`page/home/js/${this.type}-worker.js`);
+			}
+
+			return rexjsWorker;
+		}
 	}],
 	// secs
 	[10, 7.5, 5, 2.5, 0],
 	// sizes
-	[0, 50, 100, 200, 500, 1000, 2000],
+	[0, 5, 10, 20, 50, 100, 200, 500, 1000, 2000],
+	// workerSupported
+	typeof Worker !== "undefined",
 	// codeOf
 	function(size){
-		var code = origin;
+		var code = "";
 
 		for(var i = 0, j = size * 1024 / origin.length - 1;i < j;i++){
 			code += "\n" + origin;
@@ -115,8 +130,12 @@ this.Controller = function(Worker, document, configs, secs, sizes, codeOf){
 );
 
 }(
-	// workerSupported
-	typeof Worker === "function",
+	// babelWorker
+	null,
+	// traceurWorker
+	null,
+	// rexjsWorker
+	null,
 	// origin
 	Rexjs
 		.Module
