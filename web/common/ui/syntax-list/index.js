@@ -22,22 +22,17 @@ this.Controller = function(){
 
 this.Directive = function(Controller){
 	return class Directive {
-		constructor(){};
+		constructor(){
+			this.replace = true;
+			this.template = template;
+		};
 
 		static get directiveName(){
 			return "syntax-list"
 		};
 
-		get replace(){
-			return true;
-		};
-
 		get controller(){
 			return Controller;
-		};
-
-		get template(){
-			return template;
 		};
 	};
 }(

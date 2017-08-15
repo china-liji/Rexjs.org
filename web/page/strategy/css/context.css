@@ -1,0 +1,35 @@
+#strategy-context {
+	white-space: normal;
+	word-break: break-all;
+	font-size: 14px;
+	line-height: 2em;
+	padding: 30px;
+}
+
+#strategy-context > p {
+	text-indent: 2em;
+	margin-bottom: 1em;
+}
+
+#strategy-context > p,
+#strategy-context::after {
+	clear: both;
+}
+
+#strategy-context mark {
+	padding: 0 3px;
+	margin: 0 2px;
+	line-height: 1em;
+	background-color: #ffb;
+}
+
+#strategy-context img {
+	float: left;
+	border: 1px solid #ccc;
+	margin-right: 8px;
+}
+
+#strategy-context::after {
+	content: "";
+	display: block;
+}

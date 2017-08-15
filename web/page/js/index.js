@@ -62,14 +62,29 @@ this.File = function(Module, forEach, q, registerController){
 
 		compileProvider.directive(
 			directiveName,
-			function(){
-				return new member();
+			function($state){
+				return new member($state);
 			}
 		);
 	}
 );
 
-this.Module = function(File, angular, app, forEach){
+this.NavController = function(){
+	function NavController($scope, $state, $rootScope){
+		$scope.$state = $state;
+	};
+	NavController = new Rexjs(NavController);
+
+	NavController.static({
+		get controllerName(){
+			return "nav";
+		}
+	});
+
+	return NavController;
+}();
+
+this.Module = function(File, NavController, angular, app, forEach){
 	function Module(){
 		var origin = angular.module(
 			app,
@@ -92,6 +107,8 @@ this.Module = function(File, angular, app, forEach){
 		});
 
 		origin.service("$file", File);
+
+		origin.controller(NavController.controllerName, NavController);
 	};
 	Module = new Rexjs(Module);
 
@@ -104,6 +121,7 @@ this.Module = function(File, angular, app, forEach){
 	return Module;
 }(
 	this.File,
+	this.NavController,
 	angular,
 	// app
 	document.querySelector("[ng-app]").getAttribute("ng-app"),
@@ -120,6 +138,20 @@ new this.Module();
 	// routeConfigs
 	Rexjs.forEach(
 		{
+			about: {
+				url: "/about",
+				templateUrl: "page/about/index.html",
+				resolve: [
+					"page/about/css/index.css"
+				]
+			},
+			feedback: {
+				url: "/feedback",
+				templateUrl: "page/feedback/index.html",
+				resolve: [
+					"page/feedback/css/index.css"
+				]
+			},
 			home: {
 				url: "/home",
 				templateUrl: "page/home/index.html",
@@ -136,13 +168,6 @@ new this.Module();
 					"page/home/js/profile.js"
 				]
 			},
-			feedback: {
-				url: "/feedback",
-				templateUrl: "page/feedback/index.html",
-				resolve: [
-					"page/feedback/css/index.css"
-				]
-			},
 			preview: {
 				url: "/preview",
 				templateUrl: "page/preview/index.html",
@@ -157,6 +182,17 @@ new this.Module();
 					"page/preview/js/index.js",
 					"page/preview/js/nav.js",
 					"page/preview/js/details.js"
+				]
+			},
+			strategy: {
+				url: "/strategy/:nav",
+				templateUrl: "page/strategy/index.html",
+				resolve: [
+					"page/strategy/css/index.css",
+					"page/strategy/css/nav.css",
+					"page/strategy/css/context.css",
+					"page/strategy/js/nav.js",
+					"page/strategy/js/context.js"
 				]
 			}
 		},

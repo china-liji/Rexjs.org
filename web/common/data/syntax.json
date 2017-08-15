@@ -3,7 +3,7 @@
 	"name": "tryFunction",
 	"status": 2,
 	"code": "try getNextNumber() + 10;",
-	"description": "如果调用目标函数存在，则返回函数返回值，否则返回 undefined。",
+	"description": "如果调用目标函数存在，则返回函数返回值，否则返回 undefined。代码等效于：(typeof getNextNumber === \"function\" ? getNextNumber() : void 0) + 10。",
 	"reason": "很多时候，回调函数可以不被提供，但是每次都要判断是否存在，再去执行，很麻烦，所以我们决定，将其大大简化，提供了该表达式的解析。"
 }, {
 	"text": "const 声明",

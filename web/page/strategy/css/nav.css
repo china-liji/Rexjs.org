@@ -1,0 +1,28 @@
+#strategy-nav {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 200px;
+	padding: 0 10px;
+	font-size: 14px;
+	line-height: 2em;
+	text-align: right;
+	border-right: 2px solid #e5e5e5;
+}
+
+#strategy-nav + * {
+	margin-left: 200px;
+}
+
+#strategy-nav a {
+	display: block;
+}
+
+#strategy-nav a[data-focus="true"] {
+	font-size: 18px;
+	color: red;
+}
+
+#strategy-nav mark {
+	padding: 0 2px;
+}

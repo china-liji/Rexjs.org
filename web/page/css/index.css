@@ -44,6 +44,10 @@ body > header li {
 	font-size: 14px !important;
 }
 
+body > header li[data-focus="true"] {
+	color: #ffe200;
+}
+
 body > header li:not(:last-child) {
 	margin-right: 5%;
 }

@@ -1,0 +1,49 @@
+section[data-page="about"] {
+	text-align: center;
+	font-size: 14px;
+	padding: 50px 0 120px 0;
+}
+
+section[data-page="about"] > blockquote {
+	display: inline-block;
+	text-align: left;
+	max-width: 600px;
+	white-space: normal;
+	word-break: break-all;
+}
+
+section[data-page="about"] header {
+	font-size: 32px;
+	line-height: 1.5em;
+}
+
+section[data-page="about"] header > span {
+	font-weight: bold;
+}
+
+section[data-page="about"] dl {
+	margin-top: 12px;
+}
+
+section[data-page="about"] dt {
+	font-weight: bold;
+	padding: 6px 0;
+}
+
+section[data-page="about"] dt::after {
+	content: "：";
+}
+
+section[data-page="about"] dd {
+	padding: 0 2em;
+}
+
+section[data-page="about"] q {
+	text-indent: 2em;
+	display: block;
+}
+
+section[data-page="about"] q::before,
+section[data-page="about"] q::after {
+	content: "";
+}
