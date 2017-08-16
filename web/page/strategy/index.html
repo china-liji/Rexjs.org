@@ -7,8 +7,14 @@
 				name: "intro",
 				text: "序"
 			}, {
+				name: "dom",
+				text: "DOM 性能"
+			},{
 				name: "object",
 				text: "对象性能"
+			}, {
+				name: "array",
+				text: "数组性能"
 			}, {
 				name: "function",
 				text: "函数性能"
@@ -18,7 +24,9 @@
 			}];
 		'
 	>
-		<a ng-repeat="nav in navs track by $index" ui-sref='strategy({nav:"{{nav.name}}"})' data-focus="{{nav.name === $state.params.nav}}">{{nav.text}}</a>
+		<a ng-repeat="nav in navs track by $index" ui-sref='strategy({nav:"{{nav.name}}"})' data-focus="{{nav.name === $state.params.nav}}">
+			{{nav.text}}
+		</a>
 	</aside>
 	<strategy-context id="strategy-context"></strategy-context>
 </section>

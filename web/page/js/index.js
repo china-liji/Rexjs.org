@@ -70,7 +70,7 @@ this.File = function(Module, forEach, q, registerController){
 );
 
 this.NavController = function(){
-	function NavController($scope, $state, $rootScope){
+	function NavController($scope, $state){
 		$scope.$state = $state;
 	};
 	NavController = new Rexjs(NavController);
