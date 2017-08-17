@@ -33,7 +33,7 @@ body > header > aside {
 
 body > header span {
 	display: block;
-	animation: madeInChina 500ms 1 ease-in;
+	/* animation: madeInChina 500ms 1 ease-in; */
 }
 
 body > header > ul {

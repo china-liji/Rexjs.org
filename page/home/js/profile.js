@@ -31,7 +31,7 @@ this.Controller = function(document, configs, secs, sizes, workerSupported, code
 		};
 
 		test(worker, type, svgElement, color, _callback){
-			var i = 0, $scope = this.$scope, { clientWidth: width, clientHeight: height } = svgElement, x1 = 0, y1 = height;
+			var i = 0, $scope = this.$scope, { width, height } = svgElement.getBoundingClientRect(), x1 = 0, y1 = height;
 
 			worker.onmessage = (e) => {
 				var time = e.data.time, x2 = i / (sizes.length - 1) * width, y2 = height - time / secs[0] / 1000 * height;
