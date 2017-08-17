@@ -9,7 +9,7 @@ section[data-page="about"] > blockquote {
 	text-align: left;
 	max-width: 600px;
 	white-space: normal;
-	word-break: break-all;
+	word-break: break-word;
 }
 
 section[data-page="about"] header {
