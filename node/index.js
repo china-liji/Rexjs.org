@@ -38,7 +38,7 @@ this.Server = function(DIR_NAME, http, readFile){
 	};
 }(
 	// DIR_NAME
-	`${__dirname}/web`,
+	path.resolve(__dirname, "../"),
 	require("http"),
 	// readFile
 	(fullPath, path, serverResponse) => {
