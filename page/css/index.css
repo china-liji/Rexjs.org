@@ -119,32 +119,20 @@ body > div > footer {
 	font-family: Consolas;
 }
 
-[ng-app="rexjs"] .CodeMirror .CodeMirror-hscrollbar::-ms-scrollbar,
-[ng-app="rexjs"] .CodeMirror .CodeMirror-hscrollbar::-moz-scrollbar,
 [ng-app="rexjs"] .CodeMirror .CodeMirror-hscrollbar::-webkit-scrollbar {
 	height: 6px;
 }
 
-[ng-app="rexjs"] .CodeMirror .CodeMirror-vscrollbar::-ms-scrollbar,
-[ng-app="rexjs"] .CodeMirror .CodeMirror-vscrollbar::-moz-scrollbar,
 [ng-app="rexjs"] .CodeMirror .CodeMirror-vscrollbar::-webkit-scrollbar {
 	width: 6px;
 }
 
-[ng-app="rexjs"] .CodeMirror .CodeMirror-hscrollbar::-ms-scrollbar-track,
-[ng-app="rexjs"] .CodeMirror .CodeMirror-hscrollbar::-moz-scrollbar-track
 [ng-app="rexjs"] .CodeMirror .CodeMirror-hscrollbar::-webkit-scrollbar-track,
-[ng-app="rexjs"] .CodeMirror .CodeMirror-vscrollbar::-ms-scrollbar-track,
-[ng-app="rexjs"] .CodeMirror .CodeMirror-vscrollbar::-moz-scrollbar-track,
 [ng-app="rexjs"] .CodeMirror .CodeMirror-vscrollbar::-webkit-scrollbar-track {
 	background-color: rgba(255, 255, 255, 0.2);
 }
 
-[ng-app="rexjs"] .CodeMirror .CodeMirror-hscrollbar::-ms-scrollbar-thumb,
-[ng-app="rexjs"] .CodeMirror .CodeMirror-hscrollbar::-moz-scrollbar-thumb,
 [ng-app="rexjs"] .CodeMirror .CodeMirror-hscrollbar::-webkit-scrollbar-thumb,
-[ng-app="rexjs"] .CodeMirror .CodeMirror-vscrollbar::-ms-scrollbar-thumb,
-[ng-app="rexjs"] .CodeMirror .CodeMirror-vscrollbar::-moz-scrollbar-thumb,
 [ng-app="rexjs"] .CodeMirror .CodeMirror-vscrollbar::-webkit-scrollbar-thumb {
 	background-color:rgba(150, 150, 150, 0.6);
 }
