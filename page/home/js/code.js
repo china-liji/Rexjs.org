@@ -17,7 +17,7 @@ this.Controller = function(angular){
 						.$emit(
 							"code-mirror-fill-code",
 							value
-						);;
+						);
 				}
 			);
 
