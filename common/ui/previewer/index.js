@@ -1,6 +1,3 @@
-import "../code-mirror/codemirror.css";
-
-import "../code-mirror/codemirror.min.js";
 import "../js-beautify/beautify.min.js";
 
 export let { Editor, Transformer, CodeMirror } = new function(ECMAScriptParser, RegExp, LINE_TERMINATOR_REGEXP_SOURCE, defaults, forEach){

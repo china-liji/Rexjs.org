@@ -109,6 +109,8 @@ this.Module = function(File, NavController, angular, app, forEach){
 		origin.service("$file", File);
 
 		origin.controller(NavController.controllerName, NavController);
+
+		Rexjs.ECMAScriptParser.sourceMaps = true;
 	};
 	Module = new Rexjs(Module);
 
