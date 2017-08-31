@@ -50,8 +50,8 @@
 }, {
 	"text": "对象拓展符",
 	"name": "objectSpread",
-	"status": 0,
-	"code": ""
+	"status": 1,
+	"code": "({a, b = 5, ...c} = obj);"
 }, {
 	"text": "函数生成器",
 	"name": "generator",
