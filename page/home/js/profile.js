@@ -99,7 +99,7 @@ this.Controller = function(document, configs, secs, sizes, workerSupported, code
 	}, {
 		type: "rexjs",
 		color: "red",
-		version: "1.0.4",
+		version: Rexjs.version,
 		size: 207,
 		min: true,
 		href: "http://rexjs.org/rex.min.js",
