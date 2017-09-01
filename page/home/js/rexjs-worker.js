@@ -14,6 +14,8 @@ self.onmessage = function(e){
 			new Rexjs.File("test", data)
 		);
 
+		parser.build();
+
 		time = Date.now() - ticks;
 		success = true;
 	}
