@@ -72,7 +72,7 @@
 				<figcaption>
 					<q ng-repeat="config in configs track by $index">
 						<span ng-style="{color:config.color}">■</span>
-						<a ng-href="config.href" title="{{config.href}}" target="_blank">
+						<a href="{{config.href}}" title="{{config.href}}" target="_blank">
 							{{config.type}}.{{config.version}}{{config.min ? ".min" : ""}}.js({{config.size}}kb)
 						</a>
 					</q>
