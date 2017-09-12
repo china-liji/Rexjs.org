@@ -1,6 +1,6 @@
 import "../js-beautify/beautify.min.js";
 
-export let { Editor, Transformer, CodeMirror } = new function(ECMAScriptParser, RegExp, LINE_TERMINATOR_REGEXP_SOURCE, defaults, forEach){
+export let { Editor, Transformer, CodeMirror } = new function(ECMAScriptParser, RegExp, LINE_TERMINATOR_REGEXP_SOURCE, js_beautify, defaults, forEach){
 
 this.CodeMirror = function(OriginMirror, assign, formatTextContent){
 	return class CodeMirror {
@@ -24,6 +24,13 @@ this.CodeMirror = function(OriginMirror, assign, formatTextContent){
 				var code = $attrs.code || "";
 
 				if($scope.$emit("code-mirror-fill-code", code).defaultPrevented){
+					return;
+				}
+
+				if(typeof $attrs.beautify === "string"){
+					originMirror.setValue(
+						js_beautify(code)
+					);
 					return;
 				}
 
@@ -113,7 +120,7 @@ this.Editor = function(CodeMirror){
 	this.CodeMirror
 );
 
-this.Transformer = function(CodeMirror, File, parser, js_beautify){
+this.Transformer = function(CodeMirror, File, parser){
 	return class Transformer extends CodeMirror {
 		constructor($scope, $element, $attrs){
 			super($scope, $element, $attrs);
@@ -160,8 +167,7 @@ this.Transformer = function(CodeMirror, File, parser, js_beautify){
 	this.CodeMirror,
 	Rexjs.File,
 	// parser
-	new ECMAScriptParser(),
-	js_beautify
+	new ECMAScriptParser()
 );
 
 }(
@@ -169,6 +175,7 @@ this.Transformer = function(CodeMirror, File, parser, js_beautify){
 	RegExp,
 	// LINE_TERMINATOR_REGEXP_SOURCE
 	/(?:^|\r\n?|\n|\u2028|\u2029)/.source,
+	js_beautify,
 	// defaults
 	{
 		lineNumbers: true,

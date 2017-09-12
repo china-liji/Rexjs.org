@@ -1,5 +1,53 @@
 export let { Controller } = new function(babelWorker, traceurWorker, rexjsWorker, origin){
 
+var g = function*(){
+	var value = 100
+
+	switch(obj.num){
+		case 1:
+			value += 1;
+			yield value
+		
+			if(value % 2 === 1){
+				for(var i = 0;i < 3;i++){
+					if(i % 3 === 0){
+						value -= 30
+					}
+					else {
+						try {
+							throw "123"
+						}
+						catch(e){
+							yield value += i
+						}
+					}
+				}
+			}
+			else {
+				value += 50;
+			}
+
+		case 1:
+			do {
+				yield value++
+			}
+			while(value < 76)
+
+		default:
+			value += 10
+			yield value++
+
+		case 2:
+			yield 1;
+			break;
+
+		case 3:
+			yield 100
+	}
+
+	yield value
+}
+
 this.Controller = function(document, configs, secs, sizes, workerSupported, codeOf){
 	return class Controller {
 		constructor($scope, $element){
@@ -100,7 +148,7 @@ this.Controller = function(document, configs, secs, sizes, workerSupported, code
 		type: "rexjs",
 		color: "red",
 		version: Rexjs.version,
-		size: 207,
+		size: 217,
 		min: true,
 		href: "http://rexjs.org/rex.min.js",
 		get worker(){

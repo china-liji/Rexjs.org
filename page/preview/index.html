@@ -10,7 +10,7 @@
 					{{syntax.text}}
 				</dt>
 				<dd ng-if="syntax.status > 0">
-					<p ng-controller="code-mirror" data-code="{{syntax.code}}" data-tip="源码"></p>
+					<p ng-controller="code-mirror" data-code="{{syntax.code}}" data-tip="源码" data-beautify></p>
 					<p ng-controller="transformer" data-code="{{syntax.code}}" data-tip="解析"></p>
 				</dd>
 				<dd ng-if="syntax.status === 0" data-color="deep-gray"></dd>
