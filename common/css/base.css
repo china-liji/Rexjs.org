@@ -110,8 +110,7 @@ input[type="file"] {
 
 
 [data-fixedwidth] {
-	width : 1060px;
-	padding: 0 30px;
+	width : 1000px;
 	margin : 0 auto;
 }
 
