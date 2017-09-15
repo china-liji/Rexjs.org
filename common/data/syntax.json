@@ -55,8 +55,8 @@
 }, {
 	"text": "函数生成器",
 	"name": "generator",
-	"status": 0,
-	"code": ""
+	"status": 1,
+	"code": "function* generator(number, x, y){ if(number > 5){ yield x + y; }else { yield y - x; } yield fn(x, y); function fn(v1, v2){ return v1 * v2; } }"
 }, {
 	"text": "函数省略参数",
 	"name": "restArgument",
@@ -81,7 +81,7 @@
 	"text": "类",
 	"name": "class",
 	"status": 1,
-	"code": "class MyClass {};"
+	"code": "class Audi extends Car { constructor(){ super();this.setColor(\"red\"); }; static size(){ return [4.7, 1.8]; }; setColor(color){ this.color = color; } };"
 }, {
 	"text": "幂",
 	"name": "exponentiation",
@@ -91,12 +91,12 @@
 	"text": "模块导入",
 	"name": "import",
 	"status": 1,
-	"code": "import def from \"x.js\";"
+	"code": "import def from \"x.js\";import { A, B } from \"y.js\";"
 }, {
 	"text": "模块输出",
 	"name": "export",
 	"status": 1,
-	"code": "export default function(){};"
+	"code": "export default function(){};export let { A } = new function(){ this.A = function(){ /*...*/ }(); };"
 }, {
 	"text": "默认参数",
 	"name": "defaultArgument",
