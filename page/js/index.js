@@ -147,6 +147,18 @@ new this.Module();
 					"page/about/css/index.css"
 				]
 			},
+			book: {
+				url: "/book/:nav",
+				templateUrl: "page/book/index.html",
+				resolve: [
+					"page/book/css/index.css",
+					"page/book/css/nav.css",
+					"page/book/css/context.css",
+					"page/book/js/nav.js",
+					"page/book/js/context.js",
+					"common/ui/previewer"
+				]
+			},
 			feedback: {
 				url: "/feedback",
 				templateUrl: "page/feedback/index.html",
@@ -184,17 +196,6 @@ new this.Module();
 					"page/preview/js/index.js",
 					"page/preview/js/nav.js",
 					"page/preview/js/details.js"
-				]
-			},
-			strategy: {
-				url: "/strategy/:nav",
-				templateUrl: "page/strategy/index.html",
-				resolve: [
-					"page/strategy/css/index.css",
-					"page/strategy/css/nav.css",
-					"page/strategy/css/context.css",
-					"page/strategy/js/nav.js",
-					"page/strategy/js/context.js"
 				]
 			}
 		},

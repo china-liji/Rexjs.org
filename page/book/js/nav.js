@@ -7,7 +7,7 @@ this.Controller = function(){
 		};
 
 		static get controllerName(){
-			return "strategy-nav";
+			return "book-nav";
 		};
 	};
 }();

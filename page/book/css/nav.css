@@ -1,4 +1,4 @@
-#strategy-nav {
+#book-nav {
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -10,19 +10,19 @@
 	border-right: 2px solid #e5e5e5;
 }
 
-#strategy-nav + * {
+#book-nav + * {
 	margin-left: 200px;
 }
 
-#strategy-nav a {
+#book-nav a {
 	display: block;
 }
 
-#strategy-nav a[data-focus="true"] {
+#book-nav a[data-focus="true"] {
 	font-size: 18px;
 	color: red;
 }
 
-#strategy-nav mark {
+#book-nav mark {
 	padding: 0 2px;
 }

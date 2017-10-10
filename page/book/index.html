@@ -1,7 +1,7 @@
-<section data-page="strategy" data-fixedwidth>
+<section data-page="book" data-fixedwidth>
 	<aside
-		id="strategy-nav"
-		ng-controller="strategy-nav"
+		id="book-nav"
+		ng-controller="book-nav"
 		ng-init='
 			navs = [{
 				name: "intro",
@@ -24,9 +24,14 @@
 			}];
 		'
 	>
-		<a ng-repeat="nav in navs track by $index" ui-sref='strategy({nav:"{{nav.name}}"})' data-focus="{{nav.name === $state.params.nav}}">
+		<a ng-repeat="nav in navs track by $index" ui-sref='book({nav:"{{nav.name}}"})' data-focus="{{nav.name === $state.params.nav}}">
 			{{nav.text}}
 		</a>
 	</aside>
-	<strategy-context id="strategy-context"></strategy-context>
+	<dl id="book-context" ng-controller="book-context">
+		<dt></dt>
+		<dd data-markdown>
+
+		</dd>
+	</dl>
 </section>

@@ -16,7 +16,7 @@
 		<strong>原型链访问层次</strong>：与上同理，当访问层次越少，速度越快。
 		我们先看下图：
 		<br />
-		<img src="page/strategy/image/object-prototype.png" />
+		<img src="page/book/image/object-prototype.png" />
 		图中，<mark>A4</mark>类有好几层继承关系，而且<mark>color</mark>属性是定义在<mark>Toy</mark>类上面的，
 		并且图中代码最后调用的<mark>a4.color()</mark>方法，是由一层层原型链属性的检测之后，
 		最后在<mark>Toy</mark>上面发现该属性后，再执行的。自然，速度肯定是要慢于<mark>new Toy().color()</mark>。
