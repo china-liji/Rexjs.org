@@ -13,7 +13,7 @@
 
 [ng-controller~="markdown"] {
     font-size: 14px;
-    line-height: 1.6
+    line-height: 1.6;
 }
 
 [ng-controller~="markdown"]>*:first-child {
@@ -25,7 +25,19 @@
 }
 
 [ng-controller~="markdown"] a {
-    color: #00e;
+    color: #0366d6;
+}
+
+[ng-controller~="markdown"] li {
+    list-style-position: inside;
+}
+
+[ng-controller~="markdown"] ul > li {
+    list-style-type: disc;
+}
+
+[ng-controller~="markdown"] ol > li {
+    list-style-type: decimal;
 }
 
 [ng-controller~="markdown"] h1,[ng-controller~="markdown"] h2,[ng-controller~="markdown"] h3,[ng-controller~="markdown"] h4,[ng-controller~="markdown"] h5,[ng-controller~="markdown"] h6 {

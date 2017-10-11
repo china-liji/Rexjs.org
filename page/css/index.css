@@ -22,7 +22,6 @@ body > header > aside {
 	line-height: 26px;
 	width: 150px;
 	font-style: italic;
-	font-weight: bold;
 	background-color: #bb0000;
 	transform: rotate(-45deg) translate3d(-28%, -18%, 0);
 	-ms-transform: rotate(-45deg) translateX(-28%) translateY(-18%);
@@ -92,12 +91,10 @@ body > div > footer {
 }
 
 [data-status]::after {
-	content: "√";
-	font-family: Consolas;
+	content: "Yes";
 	color: #5bc100;
-	font-weight: bold;
-	font-size: 16px;
 	margin-left: 2px;
+	vertical-align: super;
 }
 
 [data-status="0"]::after {
