@@ -1,29 +1,28 @@
 body > header {
-	height: 60px;
-	line-height: 60px;
+	height: 48px;
+	line-height: 48px;
 	text-align: center;
 	font-size: 14px;
 	color: rgba(255, 255, 255, 0.9);
-	box-shadow: 0 0 10px #000;
+	box-shadow: 0 0 3px #000;
 	position: relative;
 	z-index: 9;
 }
 
 body > header,
 body > div > footer {
-	background-color: #33363f;
+	background-color: #333;
 }
 
 body > header > aside {
 	position: fixed;
 	left: 0;
 	top: 0;
-	height: 32px;
-	line-height: 32px;
+	height: 26px;
+	line-height: 26px;
 	width: 150px;
 	font-style: italic;
 	font-weight: bold;
-	text-shadow: 0 0 10px #f3af12;
 	background-color: #bb0000;
 	transform: rotate(-45deg) translate3d(-28%, -18%, 0);
 	-ms-transform: rotate(-45deg) translateX(-28%) translateY(-18%);
@@ -57,8 +56,8 @@ body > header button:hover {
 
 body > div {
 	min-height: 100%;
-	padding-top: 60px;
-	margin-top: -60px;
+	padding-top: 48px;
+	margin-top: -48px;
 	position: relative;
 }
 

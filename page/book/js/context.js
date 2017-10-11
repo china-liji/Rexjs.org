@@ -1,13 +1,9 @@
-import { Markdown } from "/common/ui/markdown";
-
-debugger
-
 export let { Controller } = new function(reset){
 
 this.Controller = function(defineProperty){
 	return class Controller {
-		constructor($state){
-			this.$state = $state;
+		constructor($scope, $state){
+			$scope.nav = $state.params.nav;
 		};
 
 		static get controllerName(){

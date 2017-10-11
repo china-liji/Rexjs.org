@@ -45,7 +45,9 @@ this.Server = function(DIR_NAME, http, readFile){
 		var contentType = contentTypes[path.ext];
 
 		if(!contentType){
-			console.log(path)
+			console.log(path);
+			error(serverResponse);
+			return;
 		}
 
 		fs.readFile(
@@ -95,6 +97,10 @@ new this.Server();
 		},
 		".xml": {
 			type: "text/xml",
+			encoding: "utf8"
+		},
+		".md": {
+			type: "text/plain",
 			encoding: "utf8"
 		},
 		".png": {

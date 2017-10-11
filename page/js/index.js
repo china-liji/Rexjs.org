@@ -156,7 +156,8 @@ new this.Module();
 					"page/book/css/context.css",
 					"page/book/js/nav.js",
 					"page/book/js/context.js",
-					"common/ui/previewer"
+					"common/ui/previewer",
+					"common/ui/markdown"
 				]
 			},
 			feedback: {

@@ -30,8 +30,6 @@
 	</aside>
 	<dl id="book-context" ng-controller="book-context">
 		<dt></dt>
-		<dd data-markdown>
-
-		</dd>
+		<dd ng-controller="markdown" data-src='{{"page/book/doc/" + nav + ".md"}}'></dd>
 	</dl>
 </section>
