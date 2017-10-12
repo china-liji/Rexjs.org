@@ -121,5 +121,5 @@
 	"text": "字符串模板",
 	"name": "template",
 	"status": 1,
-	"code": "`hello ${\"Rexjs\" + \"js\"}`;"
+	"code": "`hello ${\"Rex\" + \"js\"}`;"
 }]

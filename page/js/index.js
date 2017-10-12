@@ -148,7 +148,7 @@ new this.Module();
 				]
 			},
 			book: {
-				url: "/book/:nav",
+				url: "/book/:name/:nav",
 				templateUrl: "page/book/index.html",
 				resolve: [
 					"page/book/css/index.css",

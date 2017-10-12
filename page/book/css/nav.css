@@ -4,7 +4,6 @@
 	top: 0;
 	width: 200px;
 	padding: 0 10px;
-	font-size: 14px;
 	line-height: 2em;
 	text-align: right;
 	border-right: 2px solid #e5e5e5;
@@ -14,12 +13,44 @@
 	margin-left: 200px;
 }
 
+#book-nav dt > span {
+	box-sizing: content-box;
+	width: 0;
+    height: 0;
+    border-top: 4px solid transparent;
+	border-bottom: 4px solid transparent;
+	border-right: 0 none;
+	border-left-width: 6px;
+	border-left-style: solid;
+	display: inline-block;
+	margin-right: 2px;
+	transition: transform 300ms ease;
+	-ms-transition: -ms-transform 300ms ease;
+}
+
+#book-nav dt[data-fold="false"] > span {
+	transform: rotateZ(90deg);
+	-ms-transform: rotateZ(90deg);
+}
+
+#book-nav dt[data-fold="true"] + dd {
+	display: none;
+}
+
+#book-nav button {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+#book-nav button:hover {
+	text-decoration: underline;
+}
+
 #book-nav a {
 	display: block;
 }
 
 #book-nav a[data-focus="true"] {
-	font-size: 18px;
 	color: red;
 }
 

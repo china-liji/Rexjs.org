@@ -4,11 +4,11 @@
 }
 
 [data-markdownstatus="0"]::before {
-    content: "昨夜有人对库房放火，这文章是不是被烧掉啦？我*%#~!";
+    content: "咦~~是谁把这页纸拿去擦屁股啦！";
 }
 
 [data-markdownstatus="1"]::before {
-    content: "库存文章太多啦，容我仔细找找~~";
+    content: "书本太厚啦，容我仔细找找~~";
 }
 
 [ng-controller~="markdown"] {
@@ -26,10 +26,6 @@
 
 [ng-controller~="markdown"] a {
     color: #0366d6;
-}
-
-[ng-controller~="markdown"] li {
-    list-style-position: inside;
 }
 
 [ng-controller~="markdown"] ul > li {

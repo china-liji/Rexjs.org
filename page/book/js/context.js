@@ -3,7 +3,9 @@ export let { Controller } = new function(reset){
 this.Controller = function(defineProperty){
 	return class Controller {
 		constructor($scope, $state){
-			$scope.nav = $state.params.nav;
+			var params = $state.params;
+
+			$scope.path = `${params.name}/${params.nav}`;
 		};
 
 		static get controllerName(){

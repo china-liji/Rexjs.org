@@ -94,7 +94,6 @@ body > div > footer {
 	content: "Yes";
 	color: #5bc100;
 	margin-left: 2px;
-	vertical-align: super;
 }
 
 [data-status="0"]::after {
