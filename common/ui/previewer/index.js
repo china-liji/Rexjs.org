@@ -8,7 +8,7 @@ export let { Editor, Transformer, CodeMirror } = new function(ECMAScriptParser, 
 this.CodeMirror = function(OriginMirror, assign, formatTextContent){
 	return class CodeMirror {
 		constructor($scope, $element, $attrs){
-			var originMirror;
+			var originMirror, hasCode = $attrs.hasOwnProperty("code"), text = $element.text();
 			
 			this.originMirror = originMirror = new OriginMirror(
 				$element[0],
@@ -24,7 +24,7 @@ this.CodeMirror = function(OriginMirror, assign, formatTextContent){
 			);
 
 			$element.ready(() => {
-				var code = $attrs.code || "";
+				var code = $attrs.hasOwnProperty("code") ? $attrs.code : text;
 
 				if($scope.$emit("code-mirror-fill-code", code).defaultPrevented){
 					return;

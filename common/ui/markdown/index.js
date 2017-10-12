@@ -2,21 +2,16 @@ import "./index.css";
 
 import "/common/plugin/marked/marked.min.js";
 
-export let { Markdown } = new function(XMLHttpRequest){
+export let { Markdown } = new function(XMLHttpRequest, marked, div, forEach){
 
-this.Markdown = function(marked, div, statusChanged, getContent){
+this.Markdown = function(statusChanged, getContent, render){
 	return class Markdown {
-		constructor($scope, $element, $attrs){
+		constructor($scope, $element, $attrs, $compile){
 			$element.ready(() => {
 				getContent(
 					$attrs.src,
 					(content) => {
-						div.textContent = content;
-
-						$element.html(
-							marked(div.innerHTML)
-						);
-
+						render($scope, $element, $compile, content);
 						statusChanged($element, Markdown.STATUS_SUCCESS);
 					},
 					() => {
@@ -45,9 +40,6 @@ this.Markdown = function(marked, div, statusChanged, getContent){
 		};
 	};
 }(
-	marked,
-	// div
-	document.createElement("div"),
 	// statusChanged
 	($element, status) => {
 		$element.attr("data-markdownstatus", status);
@@ -70,9 +62,37 @@ this.Markdown = function(marked, div, statusChanged, getContent){
 
 		request.open("get", src, true);
 		request.send();
+	},
+	// render
+	($scope, $element, $compile, content) => {
+		div.textContent = content;
+
+		$element.html(
+			marked(div.innerHTML)
+		);
+
+		forEach(
+			$element[0].querySelectorAll("pre code.lang-js, pre code.lang-javascript"),
+			(code) => {
+				var $div = angular.element("<div ng-controller='code-mirror'></div>")
+
+				$div.text("var b = 1")
+
+				angular.element(code.parentElement).replaceWith($div	
+				)
+			},
+			null,
+			true
+		);
+
+		div.textContent = "";
 	}
 );
 
 }(
-	XMLHttpRequest
+	XMLHttpRequest,
+	marked,
+	// div
+	document.createElement("div"),
+	Rexjs.forEach
 );
