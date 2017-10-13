@@ -1,341 +1,347 @@
 [data-markdownstatus]:not([data-markdownstatus="2"]) {
-    text-align: center;
-    color: #aaa;
+	text-align: center;
+	color: #aaa;
 }
 
 [data-markdownstatus="0"]::before {
-    content: "咦~~是谁把这页纸拿去擦屁股啦！";
+	content: "咦~~是谁把这页纸拿去擦屁股啦！";
 }
 
 [data-markdownstatus="1"]::before {
-    content: "书本太厚啦，容我仔细找找~~";
+	content: "书本太厚啦，容我仔细找找~~";
 }
 
 [ng-controller~="markdown"] {
-    font-size: 14px;
-    line-height: 1.6;
+	font-size: 14px;
+	line-height: 1.6;
 }
 
 [ng-controller~="markdown"]>*:first-child {
-    margin-top: 0 !important
+	margin-top: 0 !important
 }
 
 [ng-controller~="markdown"]>*:last-child {
-    margin-bottom: 0 !important
+	margin-bottom: 0 !important
 }
 
 [ng-controller~="markdown"] a {
-    color: #0366d6;
+	color: #0366d6;
 }
 
 [ng-controller~="markdown"] ul > li {
-    list-style-type: disc;
+	list-style-type: disc;
 }
 
 [ng-controller~="markdown"] ol > li {
-    list-style-type: decimal;
+	list-style-type: decimal;
 }
 
 [ng-controller~="markdown"] h1,[ng-controller~="markdown"] h2,[ng-controller~="markdown"] h3,[ng-controller~="markdown"] h4,[ng-controller~="markdown"] h5,[ng-controller~="markdown"] h6 {
-    margin: 20px 0 10px;
-    padding: 0;
-    font-weight: bold;
-    -webkit-font-smoothing: antialiased;
-    cursor: text;
-    position: relative
+	margin: 20px 0 10px;
+	padding: 0;
+	font-weight: bold;
+	-webkit-font-smoothing: antialiased;
+	cursor: text;
+	position: relative
 }
 
 [ng-controller~="markdown"] h1 tt,[ng-controller~="markdown"] h1 code,[ng-controller~="markdown"] h2 tt,[ng-controller~="markdown"] h2 code,[ng-controller~="markdown"] h3 tt,[ng-controller~="markdown"] h3 code,[ng-controller~="markdown"] h4 tt,[ng-controller~="markdown"] h4 code,[ng-controller~="markdown"] h5 tt,[ng-controller~="markdown"] h5 code,[ng-controller~="markdown"] h6 tt,[ng-controller~="markdown"] h6 code {
-    font-size: inherit
+	font-size: inherit
 }
 
 [ng-controller~="markdown"] h1 {
-    font-size: 28px;
-    color: #000;
-    margin-top: 20px;
-    margin-bottom: 10px
+	font-size: 28px;
+	color: #000;
+	margin-top: 20px;
+	margin-bottom: 10px
 }
 
 [ng-controller~="markdown"] h2 {
-    font-size: 24px;
-    padding-bottom: 0.3em;
-    border-bottom: 1px solid #ccc;
-    color: #000
+	font-size: 24px;
+	padding-bottom: 0.3em;
+	border-bottom: 1px solid #ccc;
+	color: #000
 }
 
 [ng-controller~="markdown"] h3 {
-    font-size: 18px
+	font-size: 18px
 }
 
 [ng-controller~="markdown"] h4 {
-    font-size: 16px
+	font-size: 16px
 }
 
 [ng-controller~="markdown"] h5 {
-    font-size: 14px
+	font-size: 14px
 }
 
 [ng-controller~="markdown"] h6 {
-    color: #777;
-    font-size: 14px
+	color: #777;
+	font-size: 14px
 }
 
-[ng-controller~="markdown"] p,[ng-controller~="markdown"] blockquote,[ng-controller~="markdown"] ul,[ng-controller~="markdown"] ol,[ng-controller~="markdown"] dl,[ng-controller~="markdown"] table,[ng-controller~="markdown"] pre,[ng-controller~="markdown"] hr {
-    margin: 0px 0;
-    margin-bottom: 15px
+[ng-controller~="markdown"] p,[ng-controller~="markdown"] blockquote,[ng-controller~="markdown"] ul,[ng-controller~="markdown"] ol,[ng-controller~="markdown"] dl,[ng-controller~="markdown"] table,[ng-controller~="markdown"] pre[data-markdown],[ng-controller~="markdown"] hr {
+	margin: 0px 0;
+	margin-bottom: 15px
 }
 
 [ng-controller~="markdown"] li {
-    margin: 0px
+	margin: 0px
 }
 
 [ng-controller~="markdown"] hr {
-    border: 0 none;
-    background-color: #ccc;
-    height: 1px;
-    padding: 0
+	border: 0 none;
+	background-color: #ccc;
+	height: 1px;
+	padding: 0
 }
 
 [ng-controller~="markdown"] h1+h2+h3 {
-    margin-top: 30px
+	margin-top: 30px
 }
 
 [ng-controller~="markdown"] a:first-child h1,[ng-controller~="markdown"] a:first-child h2,[ng-controller~="markdown"] a:first-child h3,[ng-controller~="markdown"] a:first-child h4,[ng-controller~="markdown"] a:first-child h5,[ng-controller~="markdown"] a:first-child h6 {
-    margin-top: 0;
-    padding-top: 0
+	margin-top: 0;
+	padding-top: 0
 }
 
 [ng-controller~="markdown"] h1+p,[ng-controller~="markdown"] h2+p,[ng-controller~="markdown"] h3+p,[ng-controller~="markdown"] h4+p,[ng-controller~="markdown"] h5+p,[ng-controller~="markdown"] h6+p {
-    margin-top: 0
+	margin-top: 0
 }
 
 [ng-controller~="markdown"] li p.first {
-    display: inline-block
+	display: inline-block
 }
 
 [ng-controller~="markdown"] ul,[ng-controller~="markdown"] ol {
-    padding-left: 30px
+	padding-left: 30px
 }
 
 [ng-controller~="markdown"] ul li>:first-child,[ng-controller~="markdown"] ol li>:first-child {
-    margin-top: 0
+	margin-top: 0
 }
 
 [ng-controller~="markdown"] ul li>:last-child,[ng-controller~="markdown"] ol li>:last-child {
-    margin-bottom: 0
+	margin-bottom: 0
 }
 
 [ng-controller~="markdown"] dl {
-    padding: 0
+	padding: 0
 }
 
 [ng-controller~="markdown"] dl dt {
-    font-size: 14px;
-    font-weight: bold;
-    font-style: italic;
-    padding: 0;
-    margin: 15px 0 5px
+	font-size: 14px;
+	font-weight: bold;
+	font-style: italic;
+	padding: 0;
+	margin: 15px 0 5px
 }
 
 [ng-controller~="markdown"] dl dt:first-child {
-    padding: 0
+	padding: 0
 }
 
 [ng-controller~="markdown"] dl dt>:first-child {
-    margin-top: 0
+	margin-top: 0
 }
 
 [ng-controller~="markdown"] dl dt>:last-child {
-    margin-bottom: 0
+	margin-bottom: 0
 }
 
 [ng-controller~="markdown"] dl dd {
-    margin: 0 0 15px;
-    padding: 0 15px
+	margin: 0 0 15px;
+	padding: 0 15px
 }
 
 [ng-controller~="markdown"] dl dd>:first-child {
-    margin-top: 0
+	margin-top: 0
 }
 
 [ng-controller~="markdown"] dl dd>:last-child {
-    margin-bottom: 0
+	margin-bottom: 0
 }
 
 [ng-controller~="markdown"] blockquote {
-    border-left: 4px solid #DDD;
-    padding: 0 15px;
-    color: #777
+	border-left: 4px solid #DDD;
+	padding: 0 15px;
+	color: #777
 }
 
 [ng-controller~="markdown"] blockquote>:first-child {
-    margin-top: 0
+	margin-top: 0
 }
 
 [ng-controller~="markdown"] blockquote>:last-child {
-    margin-bottom: 0
+	margin-bottom: 0
 }
 
 [ng-controller~="markdown"] table {
-    padding: 0;
-    border-collapse: collapse;
-    border-spacing: 0
+	padding: 0;
+	border-collapse: collapse;
+	border-spacing: 0
 }
 
 [ng-controller~="markdown"] table tr {
-    border-top: 1px solid #ccc;
-    background-color: #fff;
-    margin: 0;
-    padding: 0
+	border-top: 1px solid #ccc;
+	background-color: #fff;
+	margin: 0;
+	padding: 0
 }
 
 [ng-controller~="markdown"] table tr:nth-child(2n) {
-    background-color: #f8f8f8
+	background-color: #f8f8f8
 }
 
 [ng-controller~="markdown"] table tr th {
-    font-weight: bold
+	font-weight: bold
 }
 
 [ng-controller~="markdown"] table tr th,[ng-controller~="markdown"] table tr td {
-    border: 1px solid #ccc;
-    margin: 0;
-    padding: 6px 13px
+	border: 1px solid #ccc;
+	margin: 0;
+	padding: 6px 13px
 }
 
 [ng-controller~="markdown"] table tr th>:first-child,[ng-controller~="markdown"] table tr td>:first-child {
-    margin-top: 0
+	margin-top: 0
 }
 
 [ng-controller~="markdown"] table tr th>:last-child,[ng-controller~="markdown"] table tr td>:last-child {
-    margin-bottom: 0
+	margin-bottom: 0
 }
 
 [ng-controller~="markdown"] img {
-    max-width: 100%
+	max-width: 100%
 }
 
 [ng-controller~="markdown"] span.frame {
-    display: block;
-    overflow: hidden
+	display: block;
+	overflow: hidden
 }
 
 [ng-controller~="markdown"] span.frame>span {
-    border: 1px solid #ddd;
-    display: block;
-    float: left;
-    overflow: hidden;
-    margin: 13px 0 0;
-    padding: 7px;
-    width: auto
+	border: 1px solid #ddd;
+	display: block;
+	float: left;
+	overflow: hidden;
+	margin: 13px 0 0;
+	padding: 7px;
+	width: auto
 }
 
 [ng-controller~="markdown"] span.frame span img {
-    display: block;
-    float: left
+	display: block;
+	float: left
 }
 
 [ng-controller~="markdown"] span.frame span span {
-    clear: both;
-    color: #333;
-    display: block;
-    padding: 5px 0 0
+	clear: both;
+	color: #333;
+	display: block;
+	padding: 5px 0 0
 }
 
 [ng-controller~="markdown"] span.align-center {
-    display: block;
-    overflow: hidden;
-    clear: both
+	display: block;
+	overflow: hidden;
+	clear: both
 }
 
 [ng-controller~="markdown"] span.align-center>span {
-    display: block;
-    overflow: hidden;
-    margin: 13px auto 0;
-    text-align: center
+	display: block;
+	overflow: hidden;
+	margin: 13px auto 0;
+	text-align: center
 }
 
 [ng-controller~="markdown"] span.align-center span img {
-    margin: 0 auto;
-    text-align: center
+	margin: 0 auto;
+	text-align: center
 }
 
 [ng-controller~="markdown"] span.align-right {
-    display: block;
-    overflow: hidden;
-    clear: both
+	display: block;
+	overflow: hidden;
+	clear: both
 }
 
 [ng-controller~="markdown"] span.align-right>span {
-    display: block;
-    overflow: hidden;
-    margin: 13px 0 0;
-    text-align: right
+	display: block;
+	overflow: hidden;
+	margin: 13px 0 0;
+	text-align: right
 }
 
 [ng-controller~="markdown"] span.align-right span img {
-    margin: 0;
-    text-align: right
+	margin: 0;
+	text-align: right
 }
 
 [ng-controller~="markdown"] span.float-left {
-    display: block;
-    margin-right: 13px;
-    overflow: hidden;
-    float: left
+	display: block;
+	margin-right: 13px;
+	overflow: hidden;
+	float: left
 }
 
 [ng-controller~="markdown"] span.float-left span {
-    margin: 13px 0 0
+	margin: 13px 0 0
 }
 
 [ng-controller~="markdown"] span.float-right {
-    display: block;
-    margin-left: 13px;
-    overflow: hidden;
-    float: right
+	display: block;
+	margin-left: 13px;
+	overflow: hidden;
+	float: right
 }
 
 [ng-controller~="markdown"] span.float-right>span {
-    display: block;
-    overflow: hidden;
-    margin: 13px auto 0;
-    text-align: right
+	display: block;
+	overflow: hidden;
+	margin: 13px auto 0;
+	text-align: right
 }
 
 [ng-controller~="markdown"] code,[ng-controller~="markdown"] tt {
-    margin: 0 2px;
-    padding: 0 5px;
-    white-space: nowrap;
-    border: 1px solid #ddd;
-    background-color: #f8f8f8;
-    border-radius: 3px
+	margin: 0 2px;
+	padding: 0 5px;
+	white-space: nowrap;
+	border: 1px solid #ddd;
+	background-color: #f8f8f8;
+	border-radius: 3px
 }
 
-[ng-controller~="markdown"] pre>tt,[ng-controller~="markdown"] pre>code {
-    margin: 0;
-    padding: 0;
-    white-space: pre;
-    border: none;
-    background: transparent
+[ng-controller~="markdown"] pre[data-markdown]>tt,[ng-controller~="markdown"] pre[data-markdown]>code {
+	margin: 0;
+	padding: 0;
+	white-space: pre;
+	border: none;
+	background: transparent
 }
 
-[ng-controller~="markdown"] pre {
-    background-color: #f8f8f8;
-    border: 1px solid #eee;
-    font-size: 13px;
-    line-height: 19px;
-    overflow: auto;
-    padding: 6px 10px;
-    border-radius: 3px
+[ng-controller~="markdown"] pre[data-markdown] {
+	background-color: #f8f8f8;
+	border: 1px solid #eee;
+	font-size: 13px;
+	line-height: 19px;
+	overflow: auto;
+	padding: 6px 10px;
+	border-radius: 3px
 }
 
-[ng-controller~="markdown"] pre pre,[ng-controller~="markdown"] pre code,[ng-controller~="markdown"] pre tt {
-    background-color: transparent;
-    border: none
+[ng-controller~="markdown"] pre[data-markdown] pre,[ng-controller~="markdown"] pre[data-markdown] code,[ng-controller~="markdown"] pre[data-markdown] tt {
+	background-color: transparent;
+	border: none
 }
 
-[ng-controller~="markdown"] pre pre {
-    margin: 0;
-    padding: 0
+[ng-controller~="markdown"] pre[data-markdown] pre {
+	margin: 0;
+	padding: 0
+}
+
+[ng-controller~="markdown"] [ng-controller="code-mirror"] {
+	margin-bottom: 15px;
+	font-size: 12px;
+	line-height: 1.5em;
 }

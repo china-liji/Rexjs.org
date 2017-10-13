@@ -10,6 +10,8 @@ this.CodeMirror = function(OriginMirror, assign, formatTextContent){
 		constructor($scope, $element, $attrs){
 			var originMirror, hasCode = $attrs.hasOwnProperty("code"), text = $element.text();
 			
+			$element.html("");
+
 			this.originMirror = originMirror = new OriginMirror(
 				$element[0],
 				assign(
@@ -30,14 +32,13 @@ this.CodeMirror = function(OriginMirror, assign, formatTextContent){
 					return;
 				}
 
-				if(typeof $attrs.beautify === "string"){
-					originMirror.setValue(
-						js_beautify(code)
-					);
-					return;
-				}
+				originMirror.setValue(
+					$attrs.hasOwnProperty("beautify") ?
+						js_beautify(code) :
+						code
+				);
 
-				originMirror.setValue(code);
+				$scope.$emit("code-mirror-ready");
 			});
 		};
 

@@ -2,39 +2,64 @@ import "./index.css";
 
 import "/common/plugin/marked/marked.min.js";
 
-export let { Markdown } = new function(XMLHttpRequest, marked, div, forEach){
+export let { Markdown } = new function(XMLHttpRequest, marked, modes, forEach, element){
 
 this.Markdown = function(statusChanged, getContent, render){
 	return class Markdown {
+		/**
+		 * markdown 语言显示区域
+		 * @param {Scope} $scope - $scope
+		 * @param {Element} $element - $element
+		 * @param {Attrs} $attrs - $attrs
+		 * @param {Function} $compile - $compile
+		 */
 		constructor($scope, $element, $attrs, $compile){
+			// 监听元素准备事件
 			$element.ready(() => {
+				// 获取 markdown 文件内容
 				getContent(
 					$attrs.src,
 					(content) => {
+						// 渲染文件内容
 						render($scope, $element, $compile, content);
+						// 设置状态
 						statusChanged($element, Markdown.STATUS_SUCCESS);
 					},
 					() => {
+						// 设置状态
 						statusChanged($element, Markdown.STATUS_ERROR);
 					}
 				);
 			});
 
+			// 设置状态
 			statusChanged($element, Markdown.STATUS_LOADING);
 		};
 
+		/**
+		 * 控制器名称
+		 */
 		static get controllerName(){
 			return "markdown";
 		};
 
+		/**
+		 * 错误状态码
+		 */
 		static get STATUS_ERROR(){
 			return 0;
 		};
 
+		/**
+		 * 载入状态码
+		 */
 		static get STATUS_LOADING(){
 			return 1;
 		};
 
+		/**
+		 * 成功状态码
+		 */
 		static get STATUS_SUCCESS(){
 			return 2;
 		};
@@ -48,14 +73,18 @@ this.Markdown = function(statusChanged, getContent, render){
 	(src, success, fail) => {
 		var request = new XMLHttpRequest();
 
+		// 监听 load 事件
 		request.addEventListener(
 			"load",
 			function(){
+				// 如果成功
 				if(this.status === 200){
+					// 调用成功回调
 					success(this.responseText);
 					return;
 				}
 				
+				// 调用失败回调
 				fail(this.status);
 			}
 		);
@@ -65,34 +94,51 @@ this.Markdown = function(statusChanged, getContent, render){
 	},
 	// render
 	($scope, $element, $compile, content) => {
-		div.textContent = content;
-
+		// 设置 markdown 元素的 html
 		$element.html(
-			marked(div.innerHTML)
+			// 解析 markdown 为 html
+			marked(content)
 		);
 
-		forEach(
-			$element[0].querySelectorAll("pre code.lang-js, pre code.lang-javascript"),
-			(code) => {
-				var $div = angular.element("<div ng-controller='code-mirror'></div>")
+		// 将 markdown 里面所有 pre 设置属性，避免影响 codeMirror 里面的 pre 样式
+		$element.find("pre").attr("data-markdown", "");
 
-				$div.text("var b = 1")
+		// 遍历语言
+		["js", "javascript", "html"].forEach((lang) => {
+			// 遍历所有 js
+			forEach(
+				$element[0].querySelectorAll(`pre > code.lang-${lang}`),
+				(code) => {
+					// 初始化 codeMirror 元素
+					var $div = element(`<div ng-controller="code-mirror" data-mode="${modes[lang]}"></div>`);
 
-				angular.element(code.parentElement).replaceWith($div	
-				)
-			},
-			null,
-			true
-		);
+					// 设置文本内容
+					$div.text(
+						// 为了美观，去掉前后空格
+						code.textContent.trim()
+					);
 
-		div.textContent = "";
+					// 先替换掉之前 markdown 的 pre 元素，因为 codeMirror 要计算元素显示属性
+					element(code.parentElement).replaceWith($div);
+					// 编译 codeMirror 控制器
+					$compile($div)($scope.$new());
+				},
+				null,
+				true
+			);
+		});
 	}
 );
 
 }(
 	XMLHttpRequest,
 	marked,
-	// div
-	document.createElement("div"),
-	Rexjs.forEach
+	// modes
+	{
+		js: "javascript",
+		javascript: "javascript",
+		html: "htmlmixed"
+	},
+	Rexjs.forEach,
+	angular.element
 );

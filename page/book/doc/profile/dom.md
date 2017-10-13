@@ -1,0 +1,57 @@
+　　网上有很多言论，说 DOM 是十分耗性能的，而我们在此需要纠正与声明的是，渲染 DOM 的确耗性能，但是使用 JavaScript 操作 DOM，在注意一些事项的前提下，那么性能还是非常可观。因为在之前，Rexjs 改版过 5次，而前两次是用 DOM 进行语法分析的，当然也测试过百万级别的 DOM 操作，得出的皆是上述的结论。
+
+1. **操作 DOM**：如果元素节点`十分庞大`且`存在文档上下文中`，先将其移除或隐藏，再进行操作，最后添加或显示回文档。关于这一点，原因是在操作 DOM 时候，如果`存在于文档上下文中`，可能会导致多次浏览器对页面的重绘，导致性能的消耗。
+
+2. **遍历DOM**：专业且快速的方法是使用`TreeWalker`，如：
+``` js
+document.createTreeWalker(node);
+```
+
+3. **查询 DOM**：首先，尽量`小范围`、`在指定节点上面`去查，不要什么都用`document.querySelector(selector)`，`document`是根，查询的是全文档。其次，选择器也要精准，能用`div > p`就别用`div p`等等。
+	<p>
+		<strong>textContent 与 innerHTML</strong>：在讲这个问题之前，我们必须先来了解一下<mark>文档结构</mark>的问题，因为很多同学可能不知道，
+		而这也不是基础，很多学校老师都不清楚，逻辑也稍显复杂，我们觉得有必要科普一下：
+		<br />
+		<br />
+		<mark>什么是节点</mark>、<mark>什么是元素</mark>、<mark>两者的关系是什么</mark>？<mark>HTML 元素又是什么</mark>？
+		<br />
+		<br />
+		<mark>什么是节点</mark>：当你打开<mark>Chrome</mark>调试工具时，你在<mark>Elements</mark>工具栏中所看到的一切都是节点，其中包括
+		<mark>&lt;!DOCTYPE html&gt;</mark>、<mark>任何标签</mark>、<mark>任何文本（包括注释）</mark>、<mark>甚至是标签属性（id、class 等等）</mark>，
+		他们统统都是<mark>节点</mark>。当点击在任何节点上面时，再看看<mark>Properties</mark>工具栏中，均出现了<mark>Node</mark>，
+		说明，他们都是继承至<mark>节点</mark>。节点拥有<mark>改变文档结构</mark>的能力，如：<mark>增 - appendChild</mark>、<mark>删 - removeChild</mark>、
+		<mark>改 - replaceChild</mark>、<mark>插 - insertBefore</mark>等方法，此类方法都是属于操作文档结构的方法。
+		<br />
+		<br />
+		<mark>什么是文本节点</mark>：文本节点是最小的节点，不能包含其他节点，仅供文本。所以<mark>文本节点没有子节点</mark>，子节点个数永远为<mark>0</mark>。
+		文本节点可以通过<mark>appendChild</mark>方法添加至父元素。文本节点拥有对文本进行处理的能力，如：<mark>replaceWholeText</mark>、<mark>spliteText</mark>等。
+		文本节点继承至<mark>CharacterData</mark>，而<mark>CharacterData</mark>却继承至<mark>Node</mark>。
+		<br />
+		<br />
+		<mark>什么是元素</mark>：它表示文档中的元素，元素可拥有<mark>属性节点</mark>、<mark>文本节点</mark>以及<mark>其他元素</mark>。
+		元素拥有<mark>对文档结构进行查询</mark>的能力，如：<mark>getElementsByTagName</mark>、<mark>getElementsByClassName</mark>、<mark>querySelectorAll</mark>等等;
+		元素还拥有<mark>对自身属性进行操作</mark>的能力，如：<mark>setAttribute</mark>、<mark>getAttribute</mark>等。
+		此外，你要记得，元素也是节点，因为元素继承至节点，拥有节点所有的能力，即对文档的增删改插。
+		<br />
+		<br />
+		<mark>什么是 HTML 元素</mark>：<mark>HTML 元素</mark>是<mark>HTML 文档</mark>特有的组成重要部分。
+		与元素节点不同的是，<mark>HTML 元素</mark>拥有很多<mark>特定的</mark>、<mark>用于表示的</mark>或<mark>用于显示的</mark>属性，
+		如：<mark>id</mark>、<mark>class</mark>、<mark>height</mark>、<mark>width</mark>、<mark>style</mark>等。
+		<mark>元素</mark>没有大小，没有轮廓，没有样式。而<mark>HTML 元素</mark>不一样，它就是为显示而诞生的，所以<mark>HTML 元素</mark>拥有大小、轮廓、样式等外观，
+		可以让你直接在浏览器里看的一清二楚（<mark>XML</mark>里面的都是元素节点，所以<mark>XML</mark>是用于数据传输用的，看不到外观，<mark>HTML</mark>是显示用的，可以看到外观）。
+		<br />
+		<br />
+		科普已经结束，如果大家在百度知道上发现了一篇<mark><a href="https://zhidao.baidu.com/question/1638403487781119820" target="_blank">类似的文章</a></mark>，
+		不要怀疑是抄袭的，因为那篇文章是几年前我在百度知道上回答的。
+		<br />
+		<br />
+		接下来，我们回归正传，说说<mark>textContent</mark>与<mark>innerHTML</mark>，<mark>textContent</mark>是用于节点文本的设置，
+		它不仅不用你去转义<mark>&lt;</mark>、<mark>&gt;</mark>等等字符，更不用像<mark>innerHTML</mark>那样去解析内容并生成，
+		所以，在能纯文本设置的情况下，使用<mark>textContent</mark>性能会更高。
+		<br />
+		温馨提示：<mark>&lt;br /&gt;</mark>等一些其他闭合元素也可以设置<mark>textContent</mark>，
+		只是不会在页面显示，但是值会一直保留，使你可以在特殊需要的时候可以说：<mark>“姐”来展示下高端操作</mark>。
+		比如编辑器里的插入换行，只要插入<mark>&lt;br /&gt;</mark>，再将<mark>textContent</mark>设置为<mark>\n</mark>，
+		最后直接在编辑器元素上，直接使用<mark>textContent</mark>就能获取到包括换行符<mark>\n</mark>的文本了。
+	</p>
+</div>
