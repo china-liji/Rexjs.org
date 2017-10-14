@@ -1,8 +1,8 @@
 import "./index.css";
 
-import "/common/plugin/marked/marked.min.js";
+import "/common/plugin/markdown/markdown-it.min.js";
 
-export let { Markdown } = new function(XMLHttpRequest, marked, modes, forEach, element){
+export let { Markdown } = new function(XMLHttpRequest, markdownit, modes, forEach, element){
 
 this.Markdown = function(statusChanged, getContent, render){
 	return class Markdown {
@@ -97,7 +97,7 @@ this.Markdown = function(statusChanged, getContent, render){
 		// 设置 markdown 元素的 html
 		$element.html(
 			// 解析 markdown 为 html
-			marked(content)
+			markdownit.render(content)
 		);
 
 		// 将 markdown 里面所有 pre 设置属性，避免影响 codeMirror 里面的 pre 样式
@@ -107,7 +107,7 @@ this.Markdown = function(statusChanged, getContent, render){
 		["js", "javascript", "html"].forEach((lang) => {
 			// 遍历所有 js
 			forEach(
-				$element[0].querySelectorAll(`pre > code.lang-${lang}`),
+				$element[0].querySelectorAll(`pre > code.language-${lang}`),
 				(code) => {
 					// 初始化 codeMirror 元素
 					var $div = element(`<div ng-controller="code-mirror" data-mode="${modes[lang]}"></div>`);
@@ -132,7 +132,8 @@ this.Markdown = function(statusChanged, getContent, render){
 
 }(
 	XMLHttpRequest,
-	marked,
+	// markdownit
+	markdownit(),
 	// modes
 	{
 		js: "javascript",

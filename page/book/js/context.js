@@ -1,11 +1,21 @@
 export let { Controller } = new function(reset){
 
-this.Controller = function(defineProperty){
+this.Controller = function(document, defineProperty, element){
 	return class Controller {
-		constructor($scope, $state){
-			var params = $state.params;
+		constructor($scope, $element, $state){
+			var { name, nav } = $state.params;
 
-			$scope.path = `${params.name}/${params.nav}`;
+			$scope.path = `${name}/${nav}`;
+
+			$element.ready(() => {
+				$element[0].querySelector("#book-context > dt").textContent = (
+					element(
+						document.getElementById("book-nav")
+					)
+					.scope()
+					.getFocusedName()
+				);
+			});
 		};
 
 		static get controllerName(){
@@ -13,7 +23,9 @@ this.Controller = function(defineProperty){
 		};
 	};
 }(
-	Object.defineProperty
+	document,
+	Object.defineProperty,
+	angular.element
 );
 
 }();

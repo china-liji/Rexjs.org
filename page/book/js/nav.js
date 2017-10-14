@@ -5,6 +5,10 @@ this.Controller = function(){
 		constructor($scope, $element, $state){
 			$scope.$state = $state;
 
+			$scope.getFocusedName = () => {
+				return $element[0].querySelector(`a[data-focus="true"]`).textContent;
+			};
+
 			$element.ready(() => {
 				var name = $state.params.name;
 

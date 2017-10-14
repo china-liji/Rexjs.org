@@ -5,3 +5,9 @@
 	line-height: 2em;
 	padding: 30px;
 }
+
+#book-context dt {
+	font-weight: bold;
+	font-size: 26px;
+	line-height: 2em;
+}

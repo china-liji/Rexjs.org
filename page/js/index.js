@@ -144,7 +144,8 @@ new this.Module();
 				url: "/about",
 				templateUrl: "page/about/index.html",
 				resolve: [
-					"page/about/css/index.css"
+					"page/about/css/index.css",
+					"common/ui/markdown"
 				]
 			},
 			book: {

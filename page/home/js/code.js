@@ -1,6 +1,6 @@
 export let { Controller } = new function(){
 
-this.Controller = function(angular){
+this.Controller = function(element){
 	return class Controller {
 		constructor($scope, $element){
 			$scope.error = "";
@@ -10,7 +10,7 @@ this.Controller = function(angular){
 				(e, value) => {
 					$scope;
 
-					angular.element(
+					element(
 							$element[0].querySelector('[ng-controller="transformer"]')
 						)
 						.scope()
@@ -41,7 +41,7 @@ this.Controller = function(angular){
 		};
 	};
 }(
-	angular
+	angular.element
 );
 
 }();

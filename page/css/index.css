@@ -110,7 +110,6 @@ body > div > footer {
 [ng-app="rexjs"] .CodeMirror {
 	height: auto;
 	border: 1px solid rgba(165, 165, 165, 0.6);
-	font-family: Consolas;
 }
 
 [ng-app="rexjs"] .CodeMirror .CodeMirror-hscrollbar::-webkit-scrollbar {

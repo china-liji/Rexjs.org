@@ -28,6 +28,14 @@
 	color: #0366d6;
 }
 
+[ng-controller~="markdown"] > p {
+    text-indent: 2em;
+}
+
+[ng-controller~="markdown"] ul, [ng-controller~="markdown"] ol {
+    padding-left: 1em;
+}
+
 [ng-controller~="markdown"] ul > li {
 	list-style-type: disc;
 }
@@ -111,10 +119,6 @@
 
 [ng-controller~="markdown"] li p.first {
 	display: inline-block
-}
-
-[ng-controller~="markdown"] ul,[ng-controller~="markdown"] ol {
-	padding-left: 30px
 }
 
 [ng-controller~="markdown"] ul li>:first-child,[ng-controller~="markdown"] ol li>:first-child {
