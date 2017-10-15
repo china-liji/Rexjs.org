@@ -3,11 +3,12 @@
 	word-break: break-word;
 	font-size: 14px;
 	line-height: 2em;
-	padding: 30px;
+	padding: 0 30px;
 }
 
 #book-context dt {
 	font-weight: bold;
 	font-size: 26px;
-	line-height: 2em;
+	line-height: 1em;
+	margin-bottom: 6px;
 }

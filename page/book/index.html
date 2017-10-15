@@ -5,6 +5,14 @@
 		ng-controller="book-nav"
 		ng-init='
 			books = [{
+				name: "start",
+				text: "快速使用",
+				fold: true,
+				navs: [{
+					name: "index",
+					text: "快速使用"
+				}]
+			},{
 				name: "profile",
 				text: "性能攻略",
 				fold: true,
