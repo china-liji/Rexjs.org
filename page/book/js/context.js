@@ -1,4 +1,4 @@
-export let { Controller } = new function(reset){
+export let { Controller } = new function(){
 
 this.Controller = function(document, defineProperty, element){
 	return class Controller {

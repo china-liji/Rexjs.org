@@ -84,9 +84,22 @@ this.NavController = function(){
 	return NavController;
 }();
 
-this.Module = function(File, NavController, angular, app, forEach){
+this.GlobalConstants = function(GIT_USER){
+	function GlobalConstants(module){
+		module.constant("GIT_USER", GIT_USER);
+		module.constant("GIT_REPO", GIT_USER + "/Rexjs");
+	};
+	GlobalConstants = new Rexjs(GlobalConstants);
+	
+	return GlobalConstants;
+}(
+	// GIT_USER
+	"https://github.com/china-liji"
+);
+
+this.Module = function(File, NavController, GlobalConstants, angular, app, forEach){
 	function Module(){
-		var origin = angular.module(
+		var module = angular.module(
 			app,
 			["ui.router"],
 			function($controllerProvider, $compileProvider){
@@ -95,7 +108,9 @@ this.Module = function(File, NavController, angular, app, forEach){
 			}
 		);
 
-		origin.config(function($stateProvider, $urlRouterProvider){
+		new GlobalConstants(module);
+
+		module.config(function($stateProvider, $urlRouterProvider){
 			forEach(
 				routeConfigs,
 				function(config, name){
@@ -106,9 +121,8 @@ this.Module = function(File, NavController, angular, app, forEach){
 			$urlRouterProvider.otherwise("/home");
 		});
 
-		origin.service("$file", File);
-
-		origin.controller(NavController.controllerName, NavController);
+		module.service("$file", File);
+		module.controller(NavController.controllerName, NavController);
 
 		Rexjs.ECMAScriptParser.sourceMaps = true;
 	};
@@ -124,6 +138,7 @@ this.Module = function(File, NavController, angular, app, forEach){
 }(
 	this.File,
 	this.NavController,
+	this.GlobalConstants,
 	angular,
 	// app
 	document.querySelector("[ng-app]").getAttribute("ng-app"),
@@ -165,7 +180,8 @@ new this.Module();
 				url: "/feedback",
 				templateUrl: "page/feedback/index.html",
 				resolve: [
-					"page/feedback/css/index.css"
+					"page/feedback/css/index.css",
+					"page/feedback/js/index.js"
 				]
 			},
 			home: {
