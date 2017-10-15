@@ -156,7 +156,7 @@ new this.Module();
 	Rexjs.forEach(
 		{
 			about: {
-				url: "/about",
+				url: "/about.md",
 				templateUrl: "page/about/index.html",
 				resolve: [
 					"page/about/css/index.css",
@@ -164,7 +164,7 @@ new this.Module();
 				]
 			},
 			book: {
-				url: "/book/:name/:nav",
+				url: "/book/:name/:nav.md",
 				templateUrl: "page/book/index.html",
 				resolve: [
 					"page/book/css/index.css",
