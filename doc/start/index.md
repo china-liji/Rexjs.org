@@ -1,3 +1,20 @@
+#### 下载、安装
+* Git
+```
+git clone https://github.com/china-liji/Rexjs.git
+```
+
+* Zip
+> [https://github.com/china-liji/Rexjs/archive/master.zip](https://github.com/china-liji/Rexjs/archive/master.zip)
+
+* Web 版源代码
+> [直引用文件](http://rexjs.org/rex.min.js)
+
+* API 版
+> [API 文件](http://rexjs.org/rex-api.min.js)
+
+> [浏览器端辅助文件](http://rexjs.org/rex-browser-helper.min.js)
+
 #### Rexjs API 应用：
 - `JavaScript` 代码
 ```js

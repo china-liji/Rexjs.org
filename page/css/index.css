@@ -49,8 +49,10 @@ body > header li:not(:last-child) {
 	margin-right: 5%;
 }
 
-body > header button:hover {
-	text-decoration: underline;
+body > header a {
+	display: block;
+	height: 100%;
+	padding: 0 10px;
 }
 
 body > div {
