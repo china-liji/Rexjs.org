@@ -1,6 +1,6 @@
 export let { Controller } = new function(babelWorker, traceurWorker, rexjsWorker, origin){
 
-this.Controller = function(document, configs, secs, sizes, workerSupported, codeOf){
+this.Controller = function(document, configs, secs, sizes, workerSupported, isMobile, confirm, codeOf){
 	return class Controller {
 		constructor($scope, $element){
 			var svgElement = $element[0].querySelector("svg");
@@ -13,6 +13,12 @@ this.Controller = function(document, configs, secs, sizes, workerSupported, code
 			$scope.description = "";
 
 			$scope.start = () => {
+				if(isMobile){
+					if(!confirm("该性能测试比较耗内存，若内存不够，会导致页面重新加载，是否要继续？")){
+						return;
+					}
+				}
+
 				var times = configs.length;
 
 				$scope.surplus = sizes.length * 3;
@@ -100,7 +106,7 @@ this.Controller = function(document, configs, secs, sizes, workerSupported, code
 		type: "rexjs",
 		color: "red",
 		version: Rexjs.version,
-		size: 228,
+		size: 233,
 		min: true,
 		href: "http://rexjs.org/rex.min.js",
 		get worker(){
@@ -117,6 +123,9 @@ this.Controller = function(document, configs, secs, sizes, workerSupported, code
 	[0, 5, 10, 20, 50, 100, 200, 500, 1000, 2000],
 	// workerSupported
 	typeof Worker !== "undefined",
+	// isMobile
+	!!navigator.userAgent.match(/(?:^|\W)(?:iPhone|iPad|Android|Windows Phone|iPod)(?:\W|$)/i),
+	confirm,
 	// codeOf
 	function(size){
 		var code = "";
