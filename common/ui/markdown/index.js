@@ -110,7 +110,7 @@ this.Markdown = function(statusChanged, getContent, render){
 				$element[0].querySelectorAll(`pre > code.language-${lang}`),
 				(code) => {
 					// 初始化 codeMirror 元素
-					var $div = element(`<div ng-controller="code-mirror" data-mode="${modes[lang]}"></div>`);
+					var $div = element(`<div ng-controller="code-mirror" data-tip="${lang}" data-mode="${modes[lang]}"></div>`);
 
 					// 设置文本内容
 					$div.text(

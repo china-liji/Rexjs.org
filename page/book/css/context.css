@@ -3,7 +3,7 @@
 	word-break: break-word;
 	font-size: 14px;
 	line-height: 2em;
-	padding: 0 30px;
+	padding: 0 30px 60px 30px;
 }
 
 #book-context dt {
@@ -11,4 +11,7 @@
 	font-size: 26px;
 	line-height: 1em;
 	margin-bottom: 6px;
+	padding-bottom: 0.5em;
+	border-bottom: 2px solid #ddd;
+	margin-bottom: 1em;
 }

@@ -7,15 +7,68 @@
 			books = [{
 				name: "start",
 				text: "快速使用",
-				fold: true,
+				fold: false,
 				navs: [{
 					name: "index",
 					text: "快速使用"
 				}]
-			},{
+			}, {
+				name: "theory",
+				text: "解析原理",
+				fold: false,
+				navs: [{
+					name: "intro",
+					text: "序"
+				}, {
+					name: "structure",
+					text: "文档结构"
+				}, {
+					name: "logic",
+					text: "解析逻辑"
+				}, {
+					name: "version",
+					text: "版本迭代"
+				}, {
+					name: "syntax-element",
+					text: "SyntaxElement"
+				}, {
+					name: "syntax-tag",
+					text: "SyntaxTag"
+				}, {
+					name: "tag-class",
+					text: "TagClass"
+				}, {
+					name: "tag-type",
+					text: "TagType"
+				}, {
+					name: "syntax-tags",
+					text: "SyntaxTags"
+				}, {
+					name: "expression",
+					text: "Expression"
+				}, {
+					name: "statement",
+					text: "Statement"
+				}, {
+					name: "statements",
+					text: "Statements"
+				}, {
+					name: "content-builder",
+					text: "ContentBuilder"
+				}, {
+					name: "mapping-builder",
+					text: "MappingBuilder"
+				}, {
+					name: "syntax-parser",
+					text: "SyntaxParser"
+				}, {
+					name: "demo",
+					text: "解析示例"
+				}]
+			}, {
 				name: "profile",
 				text: "性能攻略",
-				fold: true,
+				fold: false,
 				navs: [{
 					name: "intro",
 					text: "序"
@@ -44,7 +97,11 @@
 				<button ng-click="book.fold = !book.fold">{{book.text}}</button>
 			</dt>
 			<dd>
-				<a ng-repeat="nav in book.navs track by $index" ui-sref='book({name: "{{book.name}}",nav:"{{nav.name}}"})' data-focus="{{nav.name === $state.params.nav}}">
+				<a
+					ng-repeat="nav in book.navs track by $index"
+					ui-sref='book({name: "{{book.name}}",nav:"{{nav.name}}"})'
+					data-focus="{{book.name === $state.params.name && nav.name === $state.params.nav}}"
+				>
 					{{nav.text}}
 				</a>
 			</dd>

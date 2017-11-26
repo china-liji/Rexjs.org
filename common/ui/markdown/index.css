@@ -34,6 +34,7 @@
 
 [ng-controller~="markdown"] ul, [ng-controller~="markdown"] ol {
     padding-left: 1em;
+	margin-left: 1em !important;
 }
 
 [ng-controller~="markdown"] ul > li {
@@ -47,6 +48,7 @@
 [ng-controller~="markdown"] h1,[ng-controller~="markdown"] h2,[ng-controller~="markdown"] h3,[ng-controller~="markdown"] h4,[ng-controller~="markdown"] h5,[ng-controller~="markdown"] h6 {
 	margin: 20px 0 10px;
 	padding: 0;
+	line-height: 1.5em;
 	font-weight: bold;
 	-webkit-font-smoothing: antialiased;
 	cursor: text;
@@ -216,7 +218,8 @@
 }
 
 [ng-controller~="markdown"] img {
-	max-width: 100%
+	max-width: 100%;
+	border: 1px solid #eee;
 }
 
 [ng-controller~="markdown"] span.frame {
@@ -311,9 +314,13 @@
 	margin: 0 2px;
 	padding: 0 5px;
 	white-space: nowrap;
-	border: 1px solid #ddd;
-	background-color: #f8f8f8;
+	border: 1px solid #ffdf6e;
+	background-color: #fffcf4;
 	border-radius: 3px
+}
+
+[ng-controller~="markdown"] pre, [ng-controller~="markdown"] code {
+	font-family: inherit;
 }
 
 [ng-controller~="markdown"] pre[data-markdown]>tt,[ng-controller~="markdown"] pre[data-markdown]>code {

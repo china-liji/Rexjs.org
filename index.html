@@ -16,7 +16,7 @@
 			<aside data-color="white">
 				<span>Made In China</span>
 			</aside>
-			<nav>
+			<nav hidden>
 				<ul
 					data-display="inline-block-container"
 					ng-init='
@@ -47,6 +47,7 @@
 						<a ui-sref="{{link.name}}{{link.params}}">{{link.text}}</a>
 					</li>
 				</ul>
+				<hr ng-style="{ width: ((($file.count - $file.surplus) * 100 / $file.count) || 100) + '%' }" data-count="{{$file.count}}" />
 			</nav>
 		</header>
 		<div>

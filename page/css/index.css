@@ -2,7 +2,6 @@ body > header {
 	height: 48px;
 	line-height: 48px;
 	text-align: center;
-	font-size: 14px;
 	color: rgba(255, 255, 255, 0.9);
 	box-shadow: 0 0 3px #000;
 	position: relative;
@@ -15,22 +14,30 @@ body > div > footer {
 }
 
 body > header > aside {
-	position: fixed;
+	position: absolute;
 	left: 0;
 	top: 0;
 	height: 26px;
 	line-height: 26px;
 	width: 150px;
 	font-style: italic;
-	background-color: #bb0000;
 	transform: rotate(-45deg) translate3d(-28%, -18%, 0);
 	-ms-transform: rotate(-45deg) translateX(-28%) translateY(-18%);
 	overflow: hidden;
 }
 
+body > header > aside,
+body > header hr {
+	background-color: #b00;
+}
+
 body > header span {
 	display: block;
 	/* animation: madeInChina 500ms 1 ease-in; */
+}
+
+body > header > nav {
+	font-size: 14px;
 }
 
 body > header > ul {
@@ -53,6 +60,21 @@ body > header a {
 	display: block;
 	height: 100%;
 	padding: 0 10px;
+}
+
+body > header hr {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: -1;
+    height: 3px;
+    width: 0;
+	opacity: 1;
+}
+
+body > header hr[data-count="0"] {
+	opacity: 0;
+	transition: opacity ease-in 1000ms;
 }
 
 body > div {

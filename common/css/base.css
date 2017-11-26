@@ -18,7 +18,7 @@ body {
 	white-space : nowrap;
 	color : #181818;
 	font-size : 12px;
-	font-family : 微软雅黑, "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family : 微软雅黑, Menlo, Monaco, "Courier New", monospace;
 }
 
 button, input, textarea {
