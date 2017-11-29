@@ -3,7 +3,7 @@
 		<syntax-list></syntax-list>
 	</header>
 	<ol id="preview-details" ng-controller="preview-details" data-fixedwidth>
-		<li ng-repeat="syntax in syntaxList track by $index">
+		<li data-item ng-repeat="syntax in syntaxList track by $index">
 			<dl>
 				<dt data-color="white" data-name="{{syntax.name}}">
 					<strong>#</strong>

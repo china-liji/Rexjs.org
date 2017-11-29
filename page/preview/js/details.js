@@ -17,7 +17,18 @@ this.Controller = function(){
 			}
 
 			$element.ready(() => {
-				$scope.$emit("preview-details-scroll-into-view", name);
+				var i = 0, max = $element[0].querySelectorAll("li[data-item]").length;
+
+				$scope.$on(
+					"code-mirror-ready",
+					function(){
+						if(++i < max){
+							return;
+						}
+
+						$scope.$emit("preview-details-scroll-into-view", name);
+					}
+				);
 			});
 		};
 

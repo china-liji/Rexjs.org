@@ -106,7 +106,7 @@ this.Controller = function(document, configs, secs, sizes, workerSupported, isMo
 		type: "rexjs",
 		color: "red",
 		version: Rexjs.version,
-		size: 233,
+		size: 238,
 		min: true,
 		href: "http://rexjs.org/rex.min.js",
 		get worker(){
