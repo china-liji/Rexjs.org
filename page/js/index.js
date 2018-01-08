@@ -23,9 +23,14 @@ this.File = function(Module, forEach, q, registerController){
 			this.count++;
 
 			// 添加监听器
-			new Module(filename).evalListener(function(mod){
+			new Module(filename).listen(function(){
+				// 如果还没有加载完成
+				if(!this.completed){
+					return;
+				}
+
 				// 对每一个输出进行处理
-				forEach(mod.exports, registerController);
+				forEach(this.exports, registerController);
 				defered.resolve();
 
 				// 如果剩余量为 0

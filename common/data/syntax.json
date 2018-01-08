@@ -83,6 +83,11 @@
 	"status": 1,
 	"code": "class Audi extends Car { constructor(){ super();this.setColor(\"red\"); }; static size(){ return [4.7, 1.8]; }; setColor(color){ this.color = color; } };"
 }, {
+	"text": "类属性的初始化",
+	"name": "class-property-initializer",
+	"status": 1,
+	"code": "class Car { color = \"red\"; static owner = \"Lee\"; }"
+}, {
 	"text": "幂",
 	"name": "exponentiation",
 	"status": 1,
@@ -120,8 +125,9 @@
 }, {
 	"text": "疑问赋值表达式",
 	"name": "question-assignment",
+	"beautify": false,
 	"status": 2,
-	"code": "function Car(options){ this.color ?= options.config.color; }",
+	"code": "this.color ?= options.config.color;",
 	"description": "如果值为 undefined，则不执行赋值操作",
 	"reason": "很多时候，某些参数不会被提供，为避免繁琐的判断，我们提供此简洁的表达式写法。"
 }, {

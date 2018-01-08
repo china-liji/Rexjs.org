@@ -33,7 +33,7 @@ this.CodeMirror = function(OriginMirror, assign, formatTextContent){
 				}
 
 				originMirror.setValue(
-					$attrs.hasOwnProperty("beautify") ?
+					$attrs.hasOwnProperty("beautify") && $attrs.beautify !== "false" ?
 						js_beautify(code) :
 						code
 				);
