@@ -53,6 +53,10 @@ this.File = function(Module, forEach, q, registerController){
 	null,
 	// registerController
 	function(member){
+		if(!member){
+			return;
+		}
+
 		var controllerName = member.controllerName;
 
 		switch(true){
@@ -191,6 +195,7 @@ this.Module = function(File, NavController, GlobalConstants, angular, app, forEa
 		// 注册控制器
 		module.controller(NavController.controllerName, NavController);
 
+		Rexjs.CSSCompiler.disableSelectorMap();
 		// 启用 source map
 		Rexjs.ECMAScriptParser.sourceMaps = true;
 	};

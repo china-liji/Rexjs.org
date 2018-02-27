@@ -11,6 +11,6 @@
 	display: block;
 	height: 72px;
 	margin-bottom: 1em;
-	background: url(page/home/image/w72-s75.png) no-repeat center center;
+	background: url(../image/w72-s75.png) no-repeat center center;
 	background-position: inherit;
 }

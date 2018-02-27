@@ -76,7 +76,7 @@
 }
 
 #home-profile svg {
-	background: url(page/home/image/bg-repeat.png) repeat 0 0 #fff;
+	background: url(../image/bg-repeat.png) repeat 0 0 #fff;
 	border: 1px solid #aaa;
 	overflow: hidden;
 }
