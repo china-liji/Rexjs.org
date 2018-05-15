@@ -1,13 +1,13 @@
 <div
 	class="syntax-list"
 	data-display="inline-block-container"
-	ng-init='
+	ng-init="
 		titles = [
-			"该功能正在努力解析中...",
-			"成功解析",
-			"成功解析 & Rexjs 特色"
+			'该功能正在努力解析中...',
+			'成功解析',
+			'成功解析 & Rexjs 特色'
 		];
-	'
+	"
 >
 	<p ng-repeat="syntax in syntaxList track by $index">
 		<button ng-click="go(syntax.name)">
