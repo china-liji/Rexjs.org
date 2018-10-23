@@ -83,7 +83,7 @@ this.Controller = function(document, configs, secs, sizes, workerSupported, isMo
 		href: "https://unpkg.com/babel-standalone@6/babel.min.js",
 		get worker(){
 			if(!babelWorker){
-				babelWorker = new Worker(`page/home/js/${this.type}-worker.js`);
+				babelWorker = new Worker(`./page/home/js/${this.type}-worker.js`);
 			}
 
 			return babelWorker;
@@ -97,7 +97,7 @@ this.Controller = function(document, configs, secs, sizes, workerSupported, isMo
 		href: "https://google.github.io/traceur-compiler/bin/traceur.js",
 		get worker(){
 			if(!traceurWorker){
-				traceurWorker = new Worker(`page/home/js/${this.type}-worker.js`);
+				traceurWorker = new Worker(`./page/home/js/${this.type}-worker.js`);
 			}
 
 			return traceurWorker;
@@ -111,7 +111,7 @@ this.Controller = function(document, configs, secs, sizes, workerSupported, isMo
 		href: "https://raw.githubusercontent.com/china-liji/Rexjs/master/dist/rex.min.js",
 		get worker(){
 			if(!rexjsWorker){
-				rexjsWorker = new Worker(`page/home/js/${this.type}-worker.js`);
+				rexjsWorker = new Worker(`./page/home/js/${this.type}-worker.js`);
 			}
 
 			return rexjsWorker;
@@ -149,7 +149,7 @@ this.Controller = function(document, configs, secs, sizes, workerSupported, isMo
 	Rexjs
 		.Module
 		.cache[
-			new Rexjs.ModuleName("/page/home/js/profile.js").href
+			new Rexjs.ModuleName("./page/home/js/profile.js").href
 		]
 		.origin
 		// 当前引入的 traceur 不支持模块解析
