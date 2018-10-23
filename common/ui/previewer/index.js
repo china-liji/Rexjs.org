@@ -1,7 +1,7 @@
-import "/common/plugin/code-mirror/code-mirror.css";
+import "../../plugin/code-mirror/code-mirror.css";
 
-import "/common/plugin/code-mirror/code-mirror.min.js";
-import "/common/plugin/js-beautify/js-beautify.min.js";
+import "../../plugin/code-mirror/code-mirror.min.js";
+import "../../plugin/js-beautify/js-beautify.min.js";
 
 export let { Editor, Transformer, CodeMirror } = new function(ECMAScriptParser, RegExp, LINE_TERMINATOR_REGEXP_SOURCE, js_beautify, defaults, forEach){
 

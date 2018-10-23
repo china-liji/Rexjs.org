@@ -8,12 +8,12 @@ git clone https://github.com/china-liji/Rexjs.git
 > [https://github.com/china-liji/Rexjs/archive/master.zip](https://github.com/china-liji/Rexjs/archive/master.zip)
 
 * Web 版源代码
-> [直引用文件](http://rexjs.org/rex.min.js)
+> [直引用文件](https://raw.githubusercontent.com/china-liji/Rexjs/master/dist/rex.min.js)
 
 * API 版
-> [API 文件](http://rexjs.org/rex-api.min.js)
+> [API 文件](https://raw.githubusercontent.com/china-liji/Rexjs/master/dist/rex-api.min.js)
 
-> [浏览器端辅助文件](http://rexjs.org/rex-browser-helper.min.js)
+> [浏览器端辅助文件](https://raw.githubusercontent.com/china-liji/Rexjs/master/dist/rex-browser-helper.min.js)
 
 #### Rexjs API 应用：
 - `JavaScript` 代码
@@ -71,7 +71,7 @@ es5Code = parser.build();
 #### 浏览器应用：
 ```html
 <!-- 引用 rexjs -->
-<script src="http://www.rexjs.org/rex.min.js"></script>
+<script src="https://raw.githubusercontent.com/china-liji/Rexjs/master/dist/rex.min.js"></script>
 
 <!-- 使用 type 定义模块 -->
 <script type="text/rexjs">

@@ -108,7 +108,7 @@ this.Controller = function(document, configs, secs, sizes, workerSupported, isMo
 		version: "1.5.3",
 		size: 229,
 		min: true,
-		href: "http://rexjs.org/rex.min.js",
+		href: "https://raw.githubusercontent.com/china-liji/Rexjs/master/dist/rex.min.js",
 		get worker(){
 			if(!rexjsWorker){
 				rexjsWorker = new Worker(`page/home/js/${this.type}-worker.js`);

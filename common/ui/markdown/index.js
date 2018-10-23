@@ -1,6 +1,6 @@
 import "./index.css";
 
-import "/common/plugin/markdown/markdown-it.min.js";
+import "../../plugin/markdown/markdown-it.min.js";
 
 export let { Markdown } = new function(XMLHttpRequest, markdownit, modes, forEach, element){
 
